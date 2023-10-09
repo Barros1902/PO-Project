@@ -13,9 +13,10 @@ import xxl.core.exception.UnrecognizedEntryException;
 class Parser {
 
   private Spreadsheet _spreadsheet;
+
   
-  Parser() {
-  }
+
+
 
   Parser(Spreadsheet spreadsheet) {
     _spreadsheet = spreadsheet;
@@ -62,7 +63,8 @@ class Parser {
     
     if (components.length == 2) {
       String[] address = components[0].split(";");
-      Content content = parseContent(components[1]);
+      Content content = parseContent(components[1]); //Saca o content e manda para o parse content
+      // Adiciona cel
       _spreadsheet.insert(Integer.parseInt(address[0]), Integer.parseInt(address[1]), content);
     } else
       throw new UnrecognizedEntryException("Wrong format in line: " + line);
@@ -131,8 +133,9 @@ class Parser {
       return parseLiteral(argExpression);
   }
 
+  /* Para a
   private Content parseIntervalFunction(String functionName, String rangeDescription)
-    throws UnrecognizedEntryException /* , more exceptions ? */ {
+    throws UnrecognizedEntryException  , more exceptions ?  {
     Range range = _spredsheet.buildRange(rangeDescription);
     return switch (functionName) {
       case "CONCAT" -> new Concat com range 
@@ -141,7 +144,7 @@ class Parser {
       case "AVERAGE" -> new Average com range;
       default -> dar erro com função inválida: functionName;
     };
-  }
+  }*/
 
   /* Na classe Spreadsheet preciso de algo com a seguinte funcionalidade
   Range createRange(String range) throws ? {

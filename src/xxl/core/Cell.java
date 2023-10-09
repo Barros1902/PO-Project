@@ -1,16 +1,18 @@
 package xxl.core;
 
 public class Cell {
-    
-    Point _point;
-
-
-    public void setContent(){
-
+    private Point _point;
+    private Content _content;
+    public Cell(int row, int column, Content content){
+        _point = new Point(row,column);
+        _content = content;
     }
 
-    public void parseContent(){
-
+    protected void setContent(Content content){
+        _content = content;
+    }
+    public String toString(){
+        return _content.toString();
     }
 
     public void write(){

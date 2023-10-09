@@ -13,11 +13,18 @@ import xxl.core.exception.UnrecognizedEntryException;
 public class Spreadsheet implements Serializable {
   @Serial
   private static final long serialVersionUID = 202308312359L;
-  
-  // FIXME define attributes
-  // FIXME define contructor(s)
-  // FIXME define methods
-  
+  private String _name;
+  private User _user;
+  private final Representation _representation;
+  public Spreadsheet(int width, int height, String name, User user){
+    _name=name;
+    _user = user;
+    _representation = new HashMap(width, height);
+  }
+  public Representation getRepresentation(){
+      return _representation;
+  }
+
   /**
    * Insert specified content in specified address.
    *
@@ -27,6 +34,6 @@ public class Spreadsheet implements Serializable {
    *        in the specified cell.
    */
   public void insertContent(int row, int column, String contentSpecification) throws UnrecognizedEntryException /* FIXME maybe add exceptions */ {
-    //FIXME implement method
+
   }
 }

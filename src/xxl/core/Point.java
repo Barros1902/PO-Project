@@ -2,17 +2,17 @@ package xxl.core;
 
 public class Point {
     
-    private int _line;
+    private int _row;
     private int _column;
 
-
-    public int getLine(){
-
-        return 0;
+    public Point(int row, int column){
+        _row = row;
+        _column = column;
     }
-
+    public int getRow(){
+        return _row;
+    }
     public int getColumn(){
-
-        return 0;
+        return _column;
     }
 }
