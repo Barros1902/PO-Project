@@ -35,18 +35,19 @@ class Parser {
     return _spreadsheet;
   }
 
-  private void parseDimensions(Reader reader) {
+  private void parseDimensions(BufferedReader reader) {
     int rows = -1;
     int columns = -1;
     
-    for (i = 0; i < 2; i++) {
+    for (int i = 0; i < 2; i++) {
       String[] dimension = reader.readLine().split("=");
       if (dimension[0].equals("linhas"))
         rows = Integer.parseInt(dimension[1]);
+        
       else if (dimension[0].equals("colunas"))
-        columns = Integer.parseInt(contentdimension[1]);
+        columns = Integer.parseInt(dimension[1]);
       else
-        throw new UnrecognizedEntryException(line);
+        throw new UnrecognizedEntryException("Coordenadas erradas para celula");
     }
 
     if (rows <= 0 || columns <= 0)
@@ -65,7 +66,7 @@ class Parser {
       String[] address = components[0].split(";");
       Content content = parseContent(components[1]); //Saca o content e manda para o parse content
       // Adiciona cel
-      _spreadsheet.insert(Integer.parseInt(address[0]), Integer.parseInt(address[1]), content);
+      _spreadsheet.insertContent(Integer.parseInt(address[0]), Integer.parseInt(address[1]), content);
     } else
       throw new UnrecognizedEntryException("Wrong format in line: " + line);
   }
@@ -75,34 +76,34 @@ class Parser {
     char c = contentSpecification.charAt(0);
 
     if (c == '=')
-      parseContentExpression(contentSpecification.substring(1));
+      return (Content)parseContentExpression(contentSpecification.substring(1));
     else
-      parseLiteral(contentSpecification);
+      return (Content)parseLiteral(contentSpecification);
   }
 
-  private Literal parseLiteral(String literalExpression) throws UnrecognizedEntryException {
+  private Literals parseLiteral(String literalExpression) /*throws UnrecognizedEntryException*/ {
     if (literalExpression.charAt(0) == '\'')
-      return new literal String with literalExpression;
+      return new CharArray(literalExpression) ;
     else {
       try {
         int val = Integer.parseInt(literalExpression);
-        return new literal Integer with val;
+        return new Num(val);
       } catch (NumberFormatException nfe) {
-        throw new UnrecognizedEntryException("Número inválido: " + expression);
+       /*  throw new UnrecognizedEntryException("Número inválido: " + literalExpression);*/
       }
     }
   }
 
   // contentSpecification is what comes after '='
-  private Content parseContentExpression(String contentSpecification) throws UnrecognizedEntryException /more exceptions */ {
+  private Content parseContentExpression(String contentSpecification) throws UnrecognizedEntryException /* more exceptions */ {
     if (contentSpecification.contains("("))
       return parseFunction(contentSpecification);
     // It is a reference
-    String[] address = contentSpecificationaddress.split(";");
-    return new Referência at Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]);
+    String[] address = contentSpecification.split(";");
+    return new Reference.set(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]);
   }
 
-  private Content parseFunction(String functionSpecification) throws UnrecognizedEntryException /more exceptions */ {
+  private Content parseFunction(String functionSpecification) throws UnrecognizedEntryException /* more exceptions */ {
     String[] components = functionSpecification.split("[()]");
     if (components[1].contains(","))
       return parseBinaryFunction(components[0], components[1]);

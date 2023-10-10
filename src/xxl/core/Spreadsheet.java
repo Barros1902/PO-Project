@@ -17,7 +17,7 @@ public class Spreadsheet implements Serializable {
   private User _user;
   private final Representation _representation;
   public Spreadsheet(int width, int height, String name, User user){
-    _name=name;
+    _name = name;
     _user = user;
     _representation = new HashMap(width, height);
   }
