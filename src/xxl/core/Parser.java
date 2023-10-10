@@ -53,7 +53,7 @@ class Parser {
     if (rows <= 0 || columns <= 0)
       throw new UnrecognizedEntryException("Dimensões inválidas para a folha");
 
-    _spreadsheet = new Spreadsheet(rows, columns);
+    _spreadsheet = new Spreadsheet(rows, columns); //How to create spreadSheet with this???
   }
 
   private void parseLine(String line) throws UnrecognizedEntryException /*, more exceptions? */{
@@ -66,7 +66,7 @@ class Parser {
       String[] address = components[0].split(";");
       Content content = parseContent(components[1]); //Saca o content e manda para o parse content
       // Adiciona cel
-      _spreadsheet.insertContent(Integer.parseInt(address[0]), Integer.parseInt(address[1]), content);
+      _spreadsheet.insertContent(Integer.parseInt(address[0]), Integer.parseInt(address[1]), content); // insertContent o conteudo devia ser do tipo Content??? 
     } else
       throw new UnrecognizedEntryException("Wrong format in line: " + line);
   }
@@ -95,7 +95,7 @@ class Parser {
   }
 
   // contentSpecification is what comes after '='
-  private Content parseContentExpression(String contentSpecification) throws UnrecognizedEntryException /* more exceptions */ {
+  private Content parseContentExpression(String contentSpecification) /*throws UnrecognizedEntryException*/ /* more exceptions */ {
     if (contentSpecification.contains("("))
       return parseFunction(contentSpecification);
     // It is a reference
