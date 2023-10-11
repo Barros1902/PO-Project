@@ -1,4 +1,8 @@
 package xxl.app.exception;
 
-public class IntFailedException {
+import pt.tecnico.uilib.menus.CommandException;
+public class IntFailedException extends CommandException{
+    public IntFailedException(Exception e) {
+        super("Literal is not a number");
+    }
 }
