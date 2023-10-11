@@ -11,6 +11,9 @@ public class Cell {
     protected void setContent(Content content){
         _content = content;
     }
+    public Content getContent(){
+        return _content;
+    }
     public String toString(){
         return _content.toString();
     }

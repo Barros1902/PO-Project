@@ -3,22 +3,30 @@ package xxl.core;
 
 public class Reference extends Content{
     private Cell _cell;
-    Reference(){
+    Reference(Cell cell){
+        _cell = cell;
     }
+
+    public Cell get_cell() {
+        return _cell;
+    }
+
     @Override
     public String toString(){
-        return "Reference";
+        return _cell.getContent().toString();
     };
+
+    @Override
+    protected Literals value() {
+        return null;
+    }
+
     @Override
     public int EvalInt(){
-        return 0;
+        return _cell.getContent().EvalInt();
     };
     @Override
     public String evalString(){
-        return "";
-    };
-    @Override
-    public String display(){
-        return "";
+        return _cell.getContent().evalString();
     };
 }
