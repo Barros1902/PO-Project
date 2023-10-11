@@ -22,7 +22,6 @@ class DoNew extends Command<Calculator> {
     // FIXME implement command
     addIntegerField("width" , Message.columns());
     addIntegerField("height" , Message.lines());
-    addStringField("name", "Insira o nome da folha"); // TODO Remove name
     int width = integerField("width");
     int height = integerField("height");
     _receiver.createSpreadSheet(width, height);

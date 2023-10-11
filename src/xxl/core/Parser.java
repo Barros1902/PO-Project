@@ -8,12 +8,16 @@ import java.io.Reader;
 import java.util.Collection;
 import java.util.ArrayList;
 
+import xxl.core.exception.OutOfBoundsException;
 import xxl.core.exception.UnrecognizedEntryException;
+import xxl.core.Representation;
+import xxl.core.Calculator;
+import xxl.core.Spreadsheet;
 
 class Parser {
 
   private Spreadsheet _spreadsheet;
-
+  private Calculator _calculator;
   
 
 
@@ -22,7 +26,7 @@ class Parser {
     _spreadsheet = spreadsheet;
   }
 
-  Spreadsheet parseFile(String filename) throws IOException, UnrecognizedEntryException /* More Exceptions? */ {
+  Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException /* More Exceptions? */ {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       parseDimensions(reader);
 
@@ -35,7 +39,7 @@ class Parser {
     return _spreadsheet;
   }
 
-  private void parseDimensions(BufferedReader reader) {
+  private void parseDimensions(BufferedReader reader) throws UnrecognizedEntryException, IOException{
     int rows = -1;
     int columns = -1;
     
@@ -53,10 +57,10 @@ class Parser {
     if (rows <= 0 || columns <= 0)
       throw new UnrecognizedEntryException("Dimensões inválidas para a folha");
 
-    _spreadsheet = new Spreadsheet(rows, columns); //How to create spreadSheet with this???
+    _spreadsheet = _calculator.createSpreadSheet(rows, columns); 
   }
 
-  private void parseLine(String line) throws UnrecognizedEntryException /*, more exceptions? */{
+  private void parseLine(String line) throws OutOfBoundsException, UnrecognizedEntryException /*, more exceptions? */{
     String[] components = line.split("\\|");
 
     if (components.length == 1) // do nothing
@@ -72,7 +76,7 @@ class Parser {
   }
 
   // parse the begining of an expression
-  Content parseContent(String contentSpecification) throws UnrecognizedEntryException {
+  Content parseContent(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException {
     char c = contentSpecification.charAt(0);
 
     if (c == '=')
@@ -95,15 +99,15 @@ class Parser {
   }
 
   // contentSpecification is what comes after '='
-  private Content parseContentExpression(String contentSpecification) /*throws UnrecognizedEntryException*/ /* more exceptions */ {
+  private Content parseContentExpression(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException /* more exceptions */ {
     if (contentSpecification.contains("("))
       return parseFunction(contentSpecification);
     // It is a reference
     String[] address = contentSpecification.split(";");
-    return new Reference.set(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]); //Construtor de Reference?
+    return new Reference(_spreadsheet.getCell(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]))); //Construtor de Reference?
   }
 
-  private Content parseFunction(String functionSpecification) throws UnrecognizedEntryException /* more exceptions */ {
+  private Content parseFunction(String functionSpecification) throws OutOfBoundsException, UnrecognizedEntryException /* more exceptions */ {
     String[] components = functionSpecification.split("[()]");
     /*if (components[1].contains(","))*/
       return parseBinaryFunction(components[0], components[1]);
@@ -111,7 +115,7 @@ class Parser {
     /*return parseIntervalFunction(components[0], components[1]); TODO  */ 
   }
 
-  private Content parseBinaryFunction(String functionName, String args) throws UnrecognizedEntryException /* , more Exceptions */ {
+  private Content parseBinaryFunction(String functionName, String args) throws OutOfBoundsException, UnrecognizedEntryException /* , more Exceptions */ {
     String[] arguments = args.split(",");
     Content arg0 = parseArgumentExpression(arguments[0]);
     Content arg1 = parseArgumentExpression(arguments[1]);
@@ -125,10 +129,10 @@ class Parser {
     };
   }
 
-  private Content parseArgumentExpression(String argExpression) throws UnrecognizedEntryException {
+  private Content parseArgumentExpression(String argExpression) throws OutOfBoundsException, UnrecognizedEntryException {
     if (argExpression.contains(";")  && argExpression.charAt(0) != '\'') {
       String[] address = argExpression.split(";");
-      return new Reference.set(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]); //Construtor de Reference?
+      return new Reference(_spreadsheet.getCell(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]))); //Construtor de Reference?
       // pode ser diferente do anterior em parseContentExpression
     } else
       return parseLiteral(argExpression);
