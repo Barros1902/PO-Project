@@ -21,5 +21,5 @@ public abstract class Representation {
     public abstract void removeContent(int row, int column);
 
 
-
+    public abstract Cell getCell(int row, int column);
 }

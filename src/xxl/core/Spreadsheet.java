@@ -6,6 +6,7 @@ import java.util.List;
 import java.io.Serial;
 import java.io.Serializable;
 
+import xxl.core.exception.OutOfBoundsException;
 import xxl.core.exception.UnrecognizedEntryException;
 
 /**
@@ -28,16 +29,20 @@ public class Spreadsheet implements Serializable {
   public String GetName(){
     return _name;
   }
-  private void outOfBounds(int row, int column){
+  private void outOfBounds(int row, int column) throws OutOfBoundsException {
       if (_representation.outOfBounds(row, column)) {
-      // FIXME: throw exception
+            throw new OutOfBoundsException();
+        }
     }
+  public Cell getCell(int row, int column) throws OutOfBoundsException{
+    outOfBounds(row, column);
+    return _representation.getCell(row, column);
   }
-  public void addContent(int row, int column, Content content){ // Isto adiciona e muda content
+  public void addContent(int row, int column, Content content) throws OutOfBoundsException{ // Isto adiciona e muda content
     outOfBounds(row, column);
     _representation.insertContent(row, column, content);
   }
-  public void removeContent(int row, int column){
+  public void removeContent(int row, int column) throws OutOfBoundsException{
     outOfBounds(row, column);
     _representation.removeContent(row, column);
   }
@@ -47,7 +52,7 @@ public class Spreadsheet implements Serializable {
    *
    * @param row the row of the cell to change 
    * param column the column of the cell to change
-   * @param contentSpecification the specification in a string format of the content to put
+   * @param content the content to insert
    *        in the specified cell.
    */
   public void insertContent(int row, int column, Content content) throws UnrecognizedEntryException /* FIXME maybe add exceptions */ {

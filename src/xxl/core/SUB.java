@@ -8,7 +8,7 @@ public class SUB extends BinaryFunction {
 
     public int evalint(){
 
-        return 0;
+        return super(_arg1.EvalInt()) - arg2.EvalInt();
     }
     
     public String display(){

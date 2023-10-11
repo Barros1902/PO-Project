@@ -10,4 +10,5 @@ public abstract class BinaryFunction extends Function {
         _arg2 = arg2;
     }
 
+
 }

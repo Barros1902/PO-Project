@@ -18,7 +18,7 @@ public class HashMap extends Representation {
     private void changeContentCell(Cell cell, Content content){
         cell.setContent(content);
     }
-    private Cell getCell(int row, int column){
+    public Cell getCell(int row, int column){
         if (row > getHeight() || column > getWidth()) {
             throw new IllegalArgumentException("row or column out of bounds");
         }
@@ -26,7 +26,7 @@ public class HashMap extends Representation {
         return _map.get(key);
     }
     @Override
-    public void insertContent(int row, int column, Content content) throws UnrecognizedEntryException {
+    public void insertContent(int row, int column, Content content){
         if (getCell(row,column) != null) {
             changeContentCell(getCell(row,column),content);
         }else{
@@ -34,11 +34,11 @@ public class HashMap extends Representation {
         }
     }
     @Override
-    public void removeContent(int row, int column) throws UnrecognizedEntryException {
+    public void removeContent(int row, int column){
         if (getCell(row,column) != null) {
             changeContentCell(getCell(row,column),new NULL());
         }else{
-            throw new UnrecognizedEntryException("Cell does not exist");
+            //TODO: throw exception
         }
     }
 
