@@ -105,9 +105,9 @@ class Parser {
 
   private Content parseFunction(String functionSpecification) throws UnrecognizedEntryException /* more exceptions */ {
     String[] components = functionSpecification.split("[()]");
-    if (components[1].contains(","))
+    /*if (components[1].contains(","))*/
       return parseBinaryFunction(components[0], components[1]);
-        
+     
     /*return parseIntervalFunction(components[0], components[1]); TODO  */ 
   }
 
@@ -121,7 +121,7 @@ class Parser {
       case "SUB" -> new SUB(arg0, arg1);
       case "MUL" -> new MUL(arg0, arg1);
       case "DIV" -> new DIV(arg0, arg1);
-      /*default -> dar erro com função inválida: functionName ;*/ //Criar uma exception
+      default -> throw new UnrecognizedEntryException(args, null);/*dar erro com função inválida: functionName ;*/ //Criar uma exception
     };
   }
 
