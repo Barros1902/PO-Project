@@ -1,7 +1,9 @@
 package xxl.core;
 
 public class MUL extends BinaryFunction {
-
+    public MUL(Content arg1, Content arg2){
+        super(arg1,arg2);
+    }
 
     public int evalint(){
 
@@ -13,7 +15,12 @@ public class MUL extends BinaryFunction {
         return "a";
     }
 
-    
+
+    @Override
+    protected Literals value() {
+        return null;
+    }
+
     public String toString(){
 
         return "a";

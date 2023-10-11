@@ -1,6 +1,9 @@
 package xxl.core;
 
 public class DIV extends BinaryFunction {
+    public DIV(Content arg1, Content arg2){
+        super(arg1,arg2);
+    }
 
 
     public int evalint(){
@@ -13,7 +16,12 @@ public class DIV extends BinaryFunction {
         return "a";
     }
 
-    
+
+    @Override
+    protected Literals value() {
+        return null;
+    }
+
     public String toString(){
 
         return "a";

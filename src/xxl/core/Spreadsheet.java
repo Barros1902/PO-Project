@@ -18,15 +18,28 @@ public class Spreadsheet implements Serializable {
   private List<User> _user;
   private final Representation _representation;
   public Spreadsheet(int width, int height, User user){
-    _user= new ArrayList<String>();
+    _user = new ArrayList<User>();
     _user.add(user);
     _representation = new HashMap(width, height);
   }
-  public SetName(String name){
+  public void SetName(String name){
     _name=name;
   }
-  public Representation getRepresentation(){
-      return _representation;
+  public String GetName(){
+    return _name;
+  }
+  private void outOfBounds(int row, int column){
+      if (_representation.outOfBounds(row, column)) {
+      // FIXME: throw exception
+    }
+  }
+  public void addContent(int row, int column, Content content){ // Isto adiciona e muda content
+    outOfBounds(row, column);
+    _representation.insertContent(row, column, content);
+  }
+  public void removeContent(int row, int column){
+    outOfBounds(row, column);
+    _representation.removeContent(row, column);
   }
 
   /**
@@ -37,7 +50,7 @@ public class Spreadsheet implements Serializable {
    * @param contentSpecification the specification in a string format of the content to put
    *        in the specified cell.
    */
-  public void insertContent(int row, int column, String contentSpecification) throws UnrecognizedEntryException /* FIXME maybe add exceptions */ {
-
+  public void insertContent(int row, int column, Content content) throws UnrecognizedEntryException /* FIXME maybe add exceptions */ {
+    _representation.insertContent(row, column, content);
   }
 }
