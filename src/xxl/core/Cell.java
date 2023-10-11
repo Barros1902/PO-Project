@@ -11,11 +11,14 @@ public class Cell {
     protected void setContent(Content content){
         _content = content;
     }
-    public Content getContent(){
-        return _content;
-    }
+    public int EvalInt(){
+        return _content.EvalInt();
+    };
+    public String evalString(){
+        return _content.evalString();
+    };
     public String toString(){
-        return _content.toString();
+        return String.valueOf(_point.getRow())+";"+String.valueOf(_point.getColumn());
     }
 
     public void write(){

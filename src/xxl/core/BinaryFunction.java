@@ -9,6 +9,14 @@ public abstract class BinaryFunction extends Function {
         _arg1 = arg1;
         _arg2 = arg2;
     }
+    public Content getValueArg1(){
+        return _arg1;
+    }
+    public Content getValueArg2(){
+        return _arg2;
+    }
+
+
 
 
 }

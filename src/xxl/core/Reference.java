@@ -13,7 +13,7 @@ public class Reference extends Content{
 
     @Override
     public String toString(){
-        return _cell.getContent().toString();
+        return _cell.toString();
     };
 
     @Override
@@ -23,10 +23,10 @@ public class Reference extends Content{
 
     @Override
     public int EvalInt(){
-        return _cell.getContent().EvalInt();
+        return _cell.EvalInt();
     };
     @Override
     public String evalString(){
-        return _cell.getContent().evalString();
+        return _cell.evalString();
     };
 }
