@@ -72,16 +72,16 @@ class Parser {
   }
 
   // parse the begining of an expression
-  Content parseContent(String contentSpecification) {
+  Content parseContent(String contentSpecification) throws UnrecognizedEntryException {
     char c = contentSpecification.charAt(0);
 
     if (c == '=')
-      return (Content)parseContentExpression(contentSpecification.substring(1));
+      return parseContentExpression(contentSpecification.substring(1));
     else
-      return (Content)parseLiteral(contentSpecification);
+      return parseLiteral(contentSpecification);
   }
 
-  private Literals parseLiteral(String literalExpression) /*throws UnrecognizedEntryException*/ {
+  private Literals parseLiteral(String literalExpression) throws UnrecognizedEntryException {
     if (literalExpression.charAt(0) == '\'')
       return new CharArray(literalExpression) ;
     else {
@@ -89,7 +89,7 @@ class Parser {
         int val = Integer.parseInt(literalExpression);
         return new Num(val);
       } catch (NumberFormatException nfe) {
-       /*  throw new UnrecognizedEntryException("Número inválido: " + literalExpression);*/
+        throw new UnrecognizedEntryException("Número inválido: " + literalExpression);
       }
     }
   }
@@ -100,7 +100,7 @@ class Parser {
       return parseFunction(contentSpecification);
     // It is a reference
     String[] address = contentSpecification.split(";");
-    return new Reference.set(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]);
+    return new Reference.set(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]); //Construtor de Reference?
   }
 
   private Content parseFunction(String functionSpecification) throws UnrecognizedEntryException /* more exceptions */ {
@@ -108,27 +108,27 @@ class Parser {
     if (components[1].contains(","))
       return parseBinaryFunction(components[0], components[1]);
         
-    return parseIntervalFunction(components[0], components[1]);
+    /*return parseIntervalFunction(components[0], components[1]); TODO  */ 
   }
 
   private Content parseBinaryFunction(String functionName, String args) throws UnrecognizedEntryException /* , more Exceptions */ {
     String[] arguments = args.split(",");
     Content arg0 = parseArgumentExpression(arguments[0]);
-    Content arg1 = parseArgumentExpression(argarguments[1]);
+    Content arg1 = parseArgumentExpression(arguments[1]);
     
     return switch (functionName) {
-      case "ADD" -> new Add function with (arg0, arg1);
-      case "SUB" -> new Sub function with (arg0, arg1);
-      case "MUL" -> new Mul function with (arg0, arg1);
-      case "DIV" -> new Div function with (arg0, arg1);
-      default -> dar erro com função inválida: functionName ;
+      case "ADD" -> new ADD(arg0, arg1); //Criar mais construtores
+      case "SUB" -> new SUB(arg0, arg1);
+      case "MUL" -> new MUL(arg0, arg1);
+      case "DIV" -> new DIV(arg0, arg1);
+      /*default -> dar erro com função inválida: functionName ;*/ //Criar uma exception
     };
   }
 
   private Content parseArgumentExpression(String argExpression) throws UnrecognizedEntryException {
     if (argExpression.contains(";")  && argExpression.charAt(0) != '\'') {
       String[] address = argExpression.split(";");
-      return new referência at Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]);
+      return new Reference.set(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]); //Construtor de Reference?
       // pode ser diferente do anterior em parseContentExpression
     } else
       return parseLiteral(argExpression);
