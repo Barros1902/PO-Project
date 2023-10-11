@@ -1,7 +1,8 @@
 package xxl.core;
 
-// FIXME import classes
+import java.util.ArrayList;
 
+import java.util.List;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -14,12 +15,15 @@ public class Spreadsheet implements Serializable {
   @Serial
   private static final long serialVersionUID = 202308312359L;
   private String _name;
-  private User _user;
+  private List<User> _user;
   private final Representation _representation;
-  public Spreadsheet(int width, int height, String name, User user){
-    _name = name;
-    _user = user;
+  public Spreadsheet(int width, int height, User user){
+    _user= new ArrayList<String>();
+    _user.add(user);
     _representation = new HashMap(width, height);
+  }
+  public SetName(String name){
+    _name=name;
   }
   public Representation getRepresentation(){
       return _representation;
