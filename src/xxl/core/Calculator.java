@@ -36,8 +36,9 @@ public class Calculator {
   public User getActiveUser(){
     return _activeUser;
   }
-  public Spreadsheet createSpreadSheet(String name, int width, int height ){
-    Spreadsheet sheet = new Spreadsheet(width,height,name,_activeUser);
+  public Spreadsheet createSpreadSheet(int width, int height ){
+    Spreadsheet sheet = new Spreadsheet(width, height, _activeUser);
+    _spreadsheet = sheet;
     return sheet;
   }
 
@@ -52,6 +53,9 @@ public class Calculator {
     return _spreadsheet;
   }
 
+  public void setSpreadsheet(Spreadsheet sheet){
+    _spreadsheet = sheet;    
+  }
   /**
    * Saves the serialized application's state into the file associated to the current network.
    *

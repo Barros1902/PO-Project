@@ -26,10 +26,7 @@ class DoNew extends Command<Calculator> {
     addStringField("name", "Insira o nome da folha"); // TODO Remove name
     int width = integerField("width");
     int height = integerField("height");
-    String name = stringField("name");
-    User user = _receiver.getActiveUser();
-    Spreadsheet Folha = new Spreadsheet(width, height, name, user);
-    user.addSpreadSheet(Folha);
+    _receiver.createSpreadSheet(width, height);
 
 
   }

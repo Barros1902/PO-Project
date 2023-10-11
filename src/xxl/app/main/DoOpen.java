@@ -24,5 +24,8 @@ class DoOpen extends Command<Calculator> {
       throw new FileOpenFailedException(e);
       }
     */
+      
+      _receiver.getActiveUser().getSpreadSheets();
+
   }
 }
