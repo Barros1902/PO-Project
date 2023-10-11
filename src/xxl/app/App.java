@@ -14,6 +14,7 @@ public class App {
     try (var ui = Dialog.UI) {
       var receiver = new xxl.core.Calculator();
       String datafile = System.getProperty("import");
+      
       if (datafile != null) {
         try {
           receiver.importFile(datafile);

@@ -115,11 +115,12 @@ class Parser {
     /*return parseIntervalFunction(components[0], components[1]); TODO  */ 
   }
 
+
   private Content parseBinaryFunction(String functionName, String args) throws OutOfBoundsException, UnrecognizedEntryException /* , more Exceptions */ {
     String[] arguments = args.split(",");
     Content arg0 = parseArgumentExpression(arguments[0]);
     Content arg1 = parseArgumentExpression(arguments[1]);
-    
+
     return switch (functionName) {
       case "ADD" -> new ADD(arg0, arg1); //Criar mais construtores
       case "SUB" -> new SUB(arg0, arg1);

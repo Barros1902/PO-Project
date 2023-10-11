@@ -19,7 +19,7 @@ public class Calculator {
   private Spreadsheet _spreadsheet;
   private User _activeUser;
   private ArrayList<User> _users;
-  Calculator() {
+  public Calculator() {
     _spreadsheet = null;
     _activeUser = new User("root");
     _users = new ArrayList<User>();
@@ -97,14 +97,17 @@ public class Calculator {
    * @param filename name of the text input file
    * @throws ImportFileException
    */
+  /*
   public void importFile(String filename) throws ImportFileException {
     try {
       // FIXME open import file and feed entries to new spreadsheet (in a cycle)
       //       each entry is inserted using insertContent of Spreadsheet. Set new
       // spreadsheet as the active one.
       // ....
-    } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
+    } catch (IOException | UnrecognizedEntryException  FIXME maybe other exceptions  e) {
       throw new ImportFileException(filename, e);
     }
+
   }
+  */
 }
