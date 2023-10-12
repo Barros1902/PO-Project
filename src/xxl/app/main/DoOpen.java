@@ -20,11 +20,14 @@ class DoOpen extends Command<Calculator> {
 
   DoOpen(Calculator receiver) {
     super(Label.OPEN, receiver);
-    addStringField("filename", Message.openFile());
+	
+
+    
   }
   
   @Override
   protected final void execute() throws CommandException, FileOpenFailedException {
+	addStringField("filename", Message.openFile());
     try {
       String nameSaveAs= stringField("filename");
       _receiver.load(nameSaveAs);
