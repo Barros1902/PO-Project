@@ -1,7 +1,6 @@
 package xxl.core;
 
-import java.io.IOException;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 
 import xxl.core.exception.*;
@@ -18,7 +17,7 @@ public class Calculator {
   private User _activeUser;
   private ArrayList<User> _users;
   public Calculator() {
-    _parser = new Parser(this);
+    _parser = new Parser(this.getSpreadsheet());
     _spreadsheet = null;
     _activeUser = new User("root");
     _users = new ArrayList<User>();
@@ -36,7 +35,8 @@ public class Calculator {
     return _activeUser;
   }
   public Spreadsheet createSpreadSheet(int width, int height ){
-    Spreadsheet sheet = new Spreadsheet(width, height, _activeUser);
+    Spreadsheet sheet = new Spreadsheet(width, height);
+    sheet.setActiveUser(_activeUser);
     _spreadsheet = sheet;
     return sheet;
   }
@@ -86,8 +86,12 @@ public class Calculator {
    * @throws UnavailableFileException if the specified file does not exist or there is
    *         an error while processing this file.
    */
-  public void load(String filename) throws UnavailableFileException {
-    // FIXME implement serialization method
+  public void load(String filename) throws UnavailableFileException, MissingFileAssociationException, IOException {
+    try (ObjectInput i = new ObjectInputStream(new FileInputStream(filename))) {
+      _spreadsheet = (Spreadsheet) i.readObject();
+    } catch (IOException | ClassNotFoundException e) {
+      throw new UnavailableFileException(filename);
+    }
   }
 
 

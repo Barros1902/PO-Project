@@ -16,12 +16,14 @@ public class Spreadsheet implements Serializable {
   @Serial
   private static final long serialVersionUID = 202308312359L;
   private String _name;
-  private List<User> _user;
+  private User _user;
+
   private final Representation _representation;
-  public Spreadsheet(int width, int height, User user){
-    _user = new ArrayList<User>();
-    _user.add(user);
+  public Spreadsheet(int width, int height){
     _representation = new HashMap(width, height);
+  }
+  public void setActiveUser(User user){
+    _user=user;
   }
   public void SetName(String name){
     _name=name;

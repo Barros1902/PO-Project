@@ -17,14 +17,12 @@ import xxl.core.Spreadsheet;
 class Parser {
 
   private Spreadsheet _spreadsheet;
-  private Calculator _calculator;
   
 
 
 
-  public Parser(Calculator calculator) {
-    _calculator = calculator;
-    _spreadsheet = calculator.getSpreadsheet();
+  public Parser(Spreadsheet spreadsheet) {
+    _spreadsheet = spreadsheet;
   }
 
   public Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException /* More Exceptions? */ {
@@ -58,7 +56,7 @@ class Parser {
     if (rows <= 0 || columns <= 0)
       throw new UnrecognizedEntryException("Dimensões inválidas para a folha");
 
-    _spreadsheet = _calculator.createSpreadSheet(rows, columns); 
+    _spreadsheet = new Spreadsheet(rows, columns);
   }
 
   private void parseLine(String line) throws OutOfBoundsException, UnrecognizedEntryException /*, more exceptions? */{
@@ -110,10 +108,10 @@ class Parser {
 
   private Content parseFunction(String functionSpecification) throws OutOfBoundsException, UnrecognizedEntryException /* more exceptions */ {
     String[] components = functionSpecification.split("[()]");
-    /*if (components[1].contains(","))*/
+    if (components[1].contains(","))
       return parseBinaryFunction(components[0], components[1]);
-     
-    /*return parseIntervalFunction(components[0], components[1]); TODO  */ 
+    return null;
+    /*return parseIntervalFunction(components[0], components[1]);*/
   }
 
 
