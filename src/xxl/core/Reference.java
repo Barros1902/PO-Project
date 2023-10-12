@@ -3,7 +3,7 @@ package xxl.core;
 
 public class Reference extends Content{
     private Cell _cell;
-    Reference(Cell cell){
+    public Reference(Cell cell){
         _cell = cell;
     }
 

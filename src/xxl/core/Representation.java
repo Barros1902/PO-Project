@@ -15,7 +15,7 @@ public abstract class Representation {
         return _height;
     }
     public Boolean outOfBounds(int row, int column){
-        return row > _width || column > _height;
+        return row > _width || column > _height || row <= 0 || column <= 0;
     }
     public abstract void insertContent(int row, int column, Content content);
     public abstract void setCell(int row, int column, Content content);

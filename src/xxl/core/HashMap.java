@@ -6,11 +6,15 @@ public class HashMap extends Representation {
 
 
     private java.util.HashMap<List<Integer>,Cell> _map;
-    public HashMap(int width, int height) {
+    public HashMap(int width, int height){
         super(width, height);
         _map = new java.util.HashMap<List<Integer>,Cell>();
     }
+
     public void setCell(int row, int column, Content content){
+        if (row > getWidth() || column > getHeight() || row <= 0 || column <= 0) {
+            throw new IllegalArgumentException("Out of bounds");
+        }
         List<Integer> key = List.of(row,column);
         Cell cell = new Cell(row,column,content);
         _map.put(key,cell);
