@@ -22,8 +22,12 @@ public class HashMap extends Representation {
         if (row > getWidth() || column > getHeight()) {
             throw new IllegalArgumentException("Out of bounds");
         }
-        List<Integer> key = List.of(row,column);
-        return _map.get(key);
+        try {
+            return _map.get(List.of(row,column));
+        } catch (Exception e) {
+            _map.put(List.of(row,column),new Cell(row,column,new NULL()));
+            return _map.get(List.of(row,column));
+        }
     }
     @Override
     public void insertContent(int row, int column, Content content){
