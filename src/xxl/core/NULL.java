@@ -13,10 +13,10 @@ public class NULL extends Literals{
 
     @Override
     public String display(){
-        return null;
+        return "";
     }
     @Override
     public String toString(){
-        return null;
+        return "";
     }
 }
