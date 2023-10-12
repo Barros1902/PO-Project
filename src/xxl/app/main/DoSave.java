@@ -1,5 +1,7 @@
 package xxl.app.main;
 
+import java.io.IOException;
+
 import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import xxl.app.exception.FileOpenFailedException;
@@ -19,12 +21,17 @@ class DoSave extends Command<Calculator> {
   
   @Override
   protected final void execute() throws FileOpenFailedException {
-    /*
+    
     if(_receiver.getSpreadsheet() == null){
       String filename = stringField("filename");
-      _receiver.saveAs(filename);
-
-    }*/
+      try {
+		_receiver.saveAs(filename);
+	  }
+	  catch(Exception e)
+	  { 
+		new FileOpenFailedException(e);
+	  }
+    }
 
   }
 }

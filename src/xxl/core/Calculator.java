@@ -74,9 +74,26 @@ public class Calculator {
    * @throws MissingFileAssociationException if the current network does not have a file.
    * @throws IOException if there is some error while serializing the state of the network to disk.
    */
-  public void saveAs(String filename) throws FileNotFoundException, MissingFileAssociationException, IOException {
-    // FIXME implement serialization method
+  public void saveAs(String filename) throws /*FileNotFoundException, MissingFileAssociationException, */IOException {
+    // FIXME implement serialization method and throw exceptions
+
+	ObjectOutputStream obOut = null;
+	try {
+
+	obOut = new ObjectOutputStream(new FileOutputStream(filename));
+
+	obOut.writeObject(_spreadsheet);
+
+	} 
+	
+	finally {
+
+	if (obOut != null)
+	obOut.close();
+
+	}
   }
+  
 
   /**
    * @param filename name of the file containing the serialized application's state
