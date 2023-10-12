@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import xxl.core.exception.ImportFileException;
-import xxl.core.exception.MissingFileAssociationException;
-import xxl.core.exception.UnavailableFileException;
-import xxl.core.exception.UnrecognizedEntryException;
+import xxl.core.exception.*;
 
 // FIXME import classes
 
@@ -91,13 +88,15 @@ public class Calculator {
     // FIXME implement serialization method
   }
 
+
+
   /**
    * Read text input file and create domain entities.
    *
    * @param filename name of the text input file
    * @throws ImportFileException
    */
-  /*
+/*
   public void importFile(String filename) throws ImportFileException {
     try {
       // FIXME open import file and feed entries to new spreadsheet (in a cycle)
@@ -110,4 +109,8 @@ public class Calculator {
 
   }
   */
+  public void importFile(String filename) throws UnrecognizedEntryException, IOException, ImportFileException, OutOfBoundsException {
+    var parser = new Parser(this.getSpreadsheet());
+    parser.parseFile(filename);
+  }
 }

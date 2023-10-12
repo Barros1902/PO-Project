@@ -22,7 +22,7 @@ class Parser {
 
 
 
-  Parser(Spreadsheet spreadsheet) {
+  public Parser(Spreadsheet spreadsheet) {
     _spreadsheet = spreadsheet;
   }
 
