@@ -22,16 +22,8 @@ public class HashMap extends Representation {
         if (row > getWidth() || column > getHeight()) {
             throw new IllegalArgumentException("Out of bounds");
         }
-            _map.put(List.of(row, column), new Cell(row, column, new NULL()));
         if (_map.get(List.of(row, column)) == null) {
             _map.put(List.of(row, column), new Cell(row, column, new NULL()));
-        try {
-			System.out.println("si2222s");
-            return _map.get(List.of(row,column));
-        } catch (Exception e) {
-			System.out.println("cheguei ");
-            _map.put(List.of(row,column),new Cell(row,column,new NULL()));
-            return _map.get(List.of(row,column));
         }
         return _map.get(List.of(row, column));
     }
