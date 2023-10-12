@@ -40,6 +40,9 @@ public class Spreadsheet implements Serializable {
     outOfBounds(row, column);
     return _representation.getCell(row, column);
   }
+  public String getFileName(){
+    return _name;
+  }
   public void addContent(int row, int column, Content content) throws OutOfBoundsException{ // Isto adiciona e muda content
     outOfBounds(row, column);
     _representation.insertContent(row, column, content);
@@ -59,5 +62,23 @@ public class Spreadsheet implements Serializable {
    */
   public void insertContent(int row, int column, Content content) throws UnrecognizedEntryException /* FIXME maybe add exceptions */ {
     _representation.insertContent(row, column, content);
+  }
+  public Gama createRange(String range) throws OutOfBoundsException {
+    String[] rangeCoordinates;
+    int firstRow, firstColumn, lastRow, lastColumn;
+
+    if (range.indexOf(':') != -1) {
+      rangeCoordinates = range.split("[:;]");
+      firstRow = Integer.parseInt(rangeCoordinates[0]);
+      firstColumn = Integer.parseInt(rangeCoordinates[1]);
+      lastRow = Integer.parseInt(rangeCoordinates[2]);
+      lastColumn = Integer.parseInt(rangeCoordinates[3]);
+    } else {
+      rangeCoordinates = range.split(";");
+      firstRow = lastRow = Integer.parseInt(rangeCoordinates[0]);
+      firstColumn = lastColumn = Integer.parseInt(rangeCoordinates[1]);
+    }
+
+    return new Gama(firstRow, firstColumn, lastRow, lastColumn, this);
   }
 }
