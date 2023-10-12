@@ -10,15 +10,7 @@ public class MUL extends BinaryFunction {
         try {
             int val1 = getValueArg1().EvalInt();
             int val2 = getValueArg2().EvalInt();
-            try{
-                if(getValueArg1().EvalInt()==0 && getValueArg1().evalString().isEmpty()){
-                    return val2;
-                }
-            } catch(Exception e){
-                if(getValueArg2().EvalInt()==0 && getValueArg2().evalString().isEmpty()){
-                    return val1;
-                }
-            }
+
             return val1*val2;
         } catch(Exception e){
             throw new ArrayCharException();
@@ -32,6 +24,10 @@ public class MUL extends BinaryFunction {
     }
     @Override
     public String toString(){
-        return "=MUL("+getValueArg1().toString()+","+getValueArg1().toString()+")";
+        try {
+            return String.valueOf(evalInt())+"=MUL("+getValueArg1().toString()+","+getValueArg1().toString()+")";
+        } catch (ArrayCharException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

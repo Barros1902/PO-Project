@@ -13,8 +13,19 @@ public class Reference extends Content{
 
     @Override
     public String toString() {
-        return valueString()+ "=" + _cell.getPoint();
+        return getValue()+"="+ _cell.getPoint();
 
+    }
+    public String getPoint(){
+        return _cell.getPoint();
+    }
+    private String getValue(){
+        if(_cell.getContent().evalString()==null){
+            return "#VALUE";
+        }
+        else{
+            return _cell.getContent().toString();
+        }
     }
 
     protected String valueString() {
@@ -23,7 +34,7 @@ public class Reference extends Content{
 
     @Override
     protected Literals value() {
-        return null;
+        return (Literals) _cell.getContent();
     }
 
     @Override
