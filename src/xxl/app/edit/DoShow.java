@@ -27,10 +27,13 @@ class DoShow extends Command<Spreadsheet> {
     String range = stringField("range");
     try {
       Gama gama = _receiver.createRange(range);
+
       ArrayList<Cell> listCells = (ArrayList<Cell>) gama.getCells();
         for (Cell cell : listCells) {
             _display.addLine(cell.toString());
+			
         }
+		
         _display.display();
 
     } catch (OutOfBoundsException e) {

@@ -18,7 +18,7 @@ public class Cell {
         return _content.evalString();
     };
     public String toString(){
-        return String.valueOf(_point.getRow())+";"+String.valueOf(_point.getColumn());
+        return String.valueOf(_point.getRow())+";"+String.valueOf(_point.getColumn())+"|"+_content.toString();
     }
 
     public void write(){

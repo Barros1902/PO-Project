@@ -1,38 +1,50 @@
-*** tests/A-004-004-M-ok.out	2023-10-12 02:53:40.102737818 +0100
---- tests/A-004-004-M-ok.outhyp	2023-10-12 06:20:44.480159062 +0100
+*** tests/A-004-004-M-ok.out	2023-10-12 05:38:21.567711831 +0100
+--- tests/A-004-004-M-ok.outhyp	2023-10-12 12:24:55.468187929 +0100
 ***************
-*** 14,21 ****
-  6 - Colar
-  7 - Mostrar 'cut buffer'
-  0 - Sair
-! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 1;1|5
-! Menu de Edição
-  1 - Visualizar
-  2 - Inserir
-  3 - Copiar
---- 14,20 ----
-  6 - Colar
-  7 - Mostrar 'cut buffer'
-  0 - Sair
-! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Menu de Edição
-  1 - Visualizar
-  2 - Inserir
-  3 - Copiar
-***************
-*** 24,31 ****
-  6 - Colar
-  7 - Mostrar 'cut buffer'
-  0 - Sair
-! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 4;3|7
-! Menu de Edição
-  1 - Visualizar
-  2 - Inserir
-  3 - Copiar
---- 23,29 ----
-  6 - Colar
-  7 - Mostrar 'cut buffer'
-  0 - Sair
-! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Menu de Edição
-  1 - Visualizar
-  2 - Inserir
-  3 - Copiar
+*** 1,44 ****
+- Menu Principal
+- 1 - Novo
+- 2 - Abrir
+- 3 - Guardar
+- 4 - Menu de Edição
+- 5 - Menu de Consultas
+- 0 - Sair
+- Escolha uma opção: Menu de Edição
+- 1 - Visualizar
+- 2 - Inserir
+- 3 - Copiar
+- 4 - Apagar
+- 5 - Cortar
+- 6 - Colar
+- 7 - Mostrar 'cut buffer'
+- 0 - Sair
+- Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 1;1|5
+- Menu de Edição
+- 1 - Visualizar
+- 2 - Inserir
+- 3 - Copiar
+- 4 - Apagar
+- 5 - Cortar
+- 6 - Colar
+- 7 - Mostrar 'cut buffer'
+- 0 - Sair
+- Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 4;3|7
+- Menu de Edição
+- 1 - Visualizar
+- 2 - Inserir
+- 3 - Copiar
+- 4 - Apagar
+- 5 - Cortar
+- 6 - Colar
+- 7 - Mostrar 'cut buffer'
+- 0 - Sair
+- Escolha uma opção: Menu Principal
+- 1 - Novo
+- 2 - Abrir
+- 3 - Guardar
+- 4 - Menu de Edição
+- 5 - Menu de Consultas
+- 0 - Sair
+- Escolha uma opção: 
+\ No newline at end of file
+--- 0 ----

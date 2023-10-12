@@ -23,8 +23,8 @@ public class Gama {
     }
     public List<Cell> getCells() throws OutOfBoundsException {
         List<Cell> cells = new ArrayList<Cell>();
-        for (int i = BeginRow; i < EndRow; i++) {
-            for (int j = BeginColumn; j < EndColumn; j++) {
+        for (int i = BeginRow; i <= EndRow; i++) {
+            for (int j = BeginColumn; j <= EndColumn; j++) {
                 cells.add(_spreadsheet.getCell(i,j));
             }
         }

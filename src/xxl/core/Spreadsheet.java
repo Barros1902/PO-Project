@@ -66,7 +66,7 @@ public class Spreadsheet implements Serializable {
   public Gama createRange(String range) throws OutOfBoundsException {
     String[] rangeCoordinates;
     int firstRow, firstColumn, lastRow, lastColumn;
-
+	
     if (range.indexOf(':') != -1) {
       rangeCoordinates = range.split("[:;]");
       firstRow = Integer.parseInt(rangeCoordinates[0]);
@@ -77,6 +77,7 @@ public class Spreadsheet implements Serializable {
       rangeCoordinates = range.split(";");
       firstRow = lastRow = Integer.parseInt(rangeCoordinates[0]);
       firstColumn = lastColumn = Integer.parseInt(rangeCoordinates[1]);
+
     }
 
     return new Gama(firstRow, firstColumn, lastRow, lastColumn, this);
