@@ -17,8 +17,8 @@ public class Calculator {
   private User _activeUser;
   private ArrayList<User> _users;
   public Calculator() {
-    _parser = new Parser(this.getSpreadsheet());
     _spreadsheet = null;
+    _parser = new Parser(this.getSpreadsheet());
     _activeUser = new User("root");
     _users = new ArrayList<User>();
     _users.add(_activeUser);

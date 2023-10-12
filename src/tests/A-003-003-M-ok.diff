@@ -1,0 +1,52 @@
+*** tests/A-003-003-M-ok.out	2023-10-12 02:53:40.099404629 +0100
+--- tests/A-003-003-M-ok.outhyp	2023-10-12 04:42:10.100051239 +0100
+***************
+*** 1,35 ****
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+- 3 - Guardar
+- 4 - Menu de Edição
+- 5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+! 1 - Visualizar
+! 2 - Inserir
+! 3 - Copiar
+! 4 - Apagar
+! 5 - Cortar
+! 6 - Colar
+! 7 - Mostrar 'cut buffer'
+! 0 - Sair
+! Escolha uma opção: Menu Principal
+! 1 - Novo
+! 2 - Abrir
+! 3 - Guardar
+! 4 - Menu de Edição
+! 5 - Menu de Consultas
+! 0 - Sair
+! Escolha uma opção: Menu de Consultas
+! 1 - Procurar valores
+! 2 - Procurar funções
+! 0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+- 3 - Guardar
+- 4 - Menu de Edição
+- 5 - Menu de Consultas
+  0 - Sair
+  Escolha uma opção: 
+\ No newline at end of file
+--- 1,10 ----
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+  0 - Sair
+! Escolha uma opção: Opção inválida!
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  0 - Sair
+  Escolha uma opção: 
+\ No newline at end of file

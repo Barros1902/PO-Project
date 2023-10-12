@@ -30,6 +30,7 @@ class DoOpen extends Command<Calculator> {
       _receiver.load(nameSaveAs);
     }
     catch (IOException | MissingFileAssociationException | UnavailableFileException e){
+        System.out.println(e.getCause());
         throw new FileOpenFailedException(e);
     }
   }
