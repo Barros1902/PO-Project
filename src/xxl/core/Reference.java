@@ -12,9 +12,9 @@ public class Reference extends Content{
     }
 
     @Override
-    public String toString(){
-        return _cell.toString();
-    };
+    public String toString() {
+        return "=" + _cell.getPoint();
+    }
 
     @Override
     protected Literals value() {

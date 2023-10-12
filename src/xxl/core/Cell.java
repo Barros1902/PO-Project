@@ -11,6 +11,9 @@ public class Cell {
     protected void setContent(Content content){
         _content = content;
     }
+    public String getPoint(){
+        return _point.toString();
+    }
     public int EvalInt(){
         return _content.EvalInt();
     };

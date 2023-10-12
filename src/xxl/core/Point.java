@@ -9,6 +9,9 @@ public class Point {
         _row = row;
         _column = column;
     }
+    public String toString(){
+        return String.valueOf(_row)+";"+String.valueOf(_column);
+    }
     public int getRow(){
         return _row;
     }
