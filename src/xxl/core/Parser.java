@@ -22,11 +22,12 @@ class Parser {
 
 
 
-  public Parser(Spreadsheet spreadsheet) {
-    _spreadsheet = spreadsheet;
+  public Parser(Calculator calculator) {
+    _calculator = calculator;
+    _spreadsheet = calculator.getSpreadsheet();
   }
 
-  Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException /* More Exceptions? */ {
+  public Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException /* More Exceptions? */ {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       parseDimensions(reader);
 
