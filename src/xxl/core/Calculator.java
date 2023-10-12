@@ -13,10 +13,12 @@ import xxl.core.exception.*;
  */
 public class Calculator {
   /** The current spreadsheet. */
+  private Parser _parser;
   private Spreadsheet _spreadsheet;
   private User _activeUser;
   private ArrayList<User> _users;
   public Calculator() {
+    _parser = new Parser(this);
     _spreadsheet = null;
     _activeUser = new User("root");
     _users = new ArrayList<User>();
@@ -110,7 +112,6 @@ public class Calculator {
   }
   */
   public void importFile(String filename) throws UnrecognizedEntryException, IOException, ImportFileException, OutOfBoundsException {
-    var parser = new Parser(this.getSpreadsheet());
-    parser.parseFile(filename);
+    _parser.parseFile(filename);
   }
 }
