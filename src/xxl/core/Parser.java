@@ -21,8 +21,8 @@ class Parser {
 
 
 
-  public Parser(Spreadsheet spreadsheet) {
-    _spreadsheet = spreadsheet;
+  public Parser() {
+    
   }
 
   public Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException /* More Exceptions? */ {
