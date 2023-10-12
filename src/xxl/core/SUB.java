@@ -7,8 +7,6 @@ public class SUB extends BinaryFunction {
         super(arg1,arg2);
     }
 
-
-    
     public int evalInt() throws ArrayCharException {
         try {
             int val1 = getValueArg1().EvalInt();

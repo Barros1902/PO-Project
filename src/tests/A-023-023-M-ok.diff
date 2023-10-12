@@ -1,57 +1,19 @@
-*** tests/A-023-023-M-ok.out	2023-10-12 05:38:21.571711769 +0100
---- tests/A-023-023-M-ok.outhyp	2023-10-12 12:24:55.864181827 +0100
+*** tests/A-023-023-M-ok.out	2023-10-12 02:53:40.102737818 +0100
+--- tests/A-023-023-M-ok.outhyp	2023-10-12 15:07:46.669055480 +0100
 ***************
-*** 1,34 ****
-  Menu Principal
-  1 - Novo
-  2 - Abrir
-- 3 - Guardar
-- 4 - Menu de Edição
-- 5 - Menu de Consultas
-- 0 - Sair
-- Escolha uma opção: Menu de Edição
-- 1 - Visualizar
-- 2 - Inserir
-- 3 - Copiar
-- 4 - Apagar
-- 5 - Cortar
-- 6 - Colar
-- 7 - Mostrar 'cut buffer'
+*** 14,20 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
   0 - Sair
 ! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 3;3|9=MUL(4;1,4;1)
-! Menu de Edição
-! 1 - Visualizar
-! 2 - Inserir
-! 3 - Copiar
-! 4 - Apagar
-! 5 - Cortar
-! 6 - Colar
-! 7 - Mostrar 'cut buffer'
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 14,20 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
   0 - Sair
-! Escolha uma opção: Menu Principal
-  1 - Novo
-  2 - Abrir
-  3 - Guardar
-  4 - Menu de Edição
-  5 - Menu de Consultas
-  0 - Sair
-! Escolha uma opção: 
-\ No newline at end of file
---- 1,17 ----
-  Menu Principal
-  1 - Novo
-  2 - Abrir
-  0 - Sair
-! Escolha uma opção: Opção inválida!
-! Menu Principal
-! 1 - Novo
-! 2 - Abrir
-  0 - Sair
-! Escolha uma opção: Especifique o número de colunas da folha: Especifique o número de colunas da folha: Especifique o número de linhas da folha: Menu Principal
-  1 - Novo
-  2 - Abrir
-  3 - Guardar
-  4 - Menu de Edição
-  5 - Menu de Consultas
-  0 - Sair
-! Escolha uma opção: Fim de entrada de dados (R-EOF): pt.tecnico.uilib.text.RuntimeEOFException: Fim do fluxo de dados de entrada
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 3;3|a
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
