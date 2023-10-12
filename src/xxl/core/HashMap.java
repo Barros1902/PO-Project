@@ -19,8 +19,8 @@ public class HashMap extends Representation {
         cell.setContent(content);
     }
     public Cell getCell(int row, int column){
-        if (row > getHeight() || column > getWidth()) {
-            throw new IllegalArgumentException("row or column out of bounds");
+        if (row > getWidth() || column > getHeight()) {
+            throw new IllegalArgumentException("Out of bounds");
         }
         List<Integer> key = List.of(row,column);
         return _map.get(key);
