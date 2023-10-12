@@ -1,5 +1,5 @@
 *** tests/A-015-015-M-ok.out	2023-10-12 02:53:40.102737818 +0100
---- tests/A-015-015-M-ok.outhyp	2023-10-12 15:07:46.499049949 +0100
+--- tests/A-015-015-M-ok.outhyp	2023-10-12 16:22:21.799568931 +0100
 ***************
 *** 14,20 ****
   6 - Colar
@@ -13,7 +13,7 @@
   6 - Colar
   7 - Mostrar 'cut buffer'
   0 - Sair
-! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 3;3|4;2|
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 3;3|=4;2
   Menu de Edição
   1 - Visualizar
   2 - Inserir

@@ -32,11 +32,10 @@ public class Calculator {
   public User getActiveUser(){
     return _activeUser;
   }
-  public Spreadsheet createSpreadSheet(int width, int height ){
+  public void createSpreadSheet(int width, int height ){
     Spreadsheet sheet = new Spreadsheet(width, height);
     sheet.setActiveUser(_activeUser);
     _spreadsheet = sheet;
-    return sheet;
   }
 
   // FIXME add more fields and methods if needed

@@ -13,7 +13,12 @@ public class Reference extends Content{
 
     @Override
     public String toString() {
-        return "=" + _cell.getPoint();
+        return valueString()+ "=" + _cell.getPoint();
+
+    }
+
+    protected String valueString() {
+        return _cell.getContent().toString();
     }
 
     @Override

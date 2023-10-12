@@ -20,9 +20,7 @@ public class Spreadsheet implements Serializable {
 
   private final Representation _representation;
 
-  public Spreadsheet(int width, int height) throws OutOfBoundsException{
-    if (width <= 0 || height <= 0)
-      throw new OutOfBoundsException();
+  public Spreadsheet(int width, int height){
     _representation = new HashMap(width, height);
   }
   public void setActiveUser(User user){

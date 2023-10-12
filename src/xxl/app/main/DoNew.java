@@ -6,6 +6,7 @@ import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import xxl.core.Calculator;
+import xxl.core.exception.OutOfBoundsException;
 
 
 /**
@@ -18,7 +19,7 @@ class DoNew extends Command<Calculator> {
   }
   
   @Override
-  protected final void execute() throws CommandException {
+  protected final void execute() throws CommandException{
     // FIXME implement command
     addIntegerField("width" , Message.columns());
     addIntegerField("height" , Message.lines());
