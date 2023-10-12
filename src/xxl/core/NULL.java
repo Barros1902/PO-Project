@@ -5,16 +5,18 @@ public class NULL extends Literals{
     public String evalString(){
         return null;
     }
+
     @Override
-    public int evalInt(){
+    public int evalInt() {
         return 0;
     }
+
     @Override
     public String display(){
-        return "";
+        return null;
     }
     @Override
     public String toString(){
-        return "";
+        return null;
     }
 }

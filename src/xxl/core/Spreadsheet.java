@@ -38,7 +38,12 @@ public class Spreadsheet implements Serializable {
     }
   public Cell getCell(int row, int column) throws OutOfBoundsException{
     outOfBounds(row, column);
-    return _representation.getCell(row, column);
+    try {
+      return _representation.getCell(row, column);
+    } catch (Exception e) {
+      _representation.insertContent(row, column, new NULL());
+      return _representation.getCell(row, column);
+    }
   }
   public String getFileName(){
     return _name;
