@@ -41,7 +41,7 @@ public class Spreadsheet implements Serializable {
     try {
       return _representation.getCell(row, column);
     } catch (Exception e) {
-      _representation.insertContent(row, column, new NULL());
+      _representation.setCell(row, column, new NULL());
       return _representation.getCell(row, column);
     }
   }

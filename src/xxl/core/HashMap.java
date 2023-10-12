@@ -10,7 +10,7 @@ public class HashMap extends Representation {
         super(width, height);
         _map = new java.util.HashMap<List<Integer>,Cell>();
     }
-    private void setCell(int row, int column, Content content){
+    public void setCell(int row, int column, Content content){
         List<Integer> key = List.of(row,column);
         Cell cell = new Cell(row,column,content);
         _map.put(key,cell);

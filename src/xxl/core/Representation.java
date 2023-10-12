@@ -18,6 +18,7 @@ public abstract class Representation {
         return row > _width || column > _height;
     }
     public abstract void insertContent(int row, int column, Content content);
+    public abstract void setCell(int row, int column, Content content);
     public abstract void removeContent(int row, int column);
 
 
