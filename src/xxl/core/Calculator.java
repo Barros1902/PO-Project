@@ -48,20 +48,13 @@ public class Calculator {
   public Spreadsheet getSpreadsheet() {
     return _spreadsheet;
   }
-
+  /**
+   * Set the current spreadsheet.
+   *
+   * @param sheet the new spreadsheet of this application.
+   */
   public void setSpreadsheet(Spreadsheet sheet){
     _spreadsheet = sheet;    
-  }
-  /**
-   * Saves the serialized application's state into the file associated to the current network.
-   *
-   * @throws FileNotFoundException if for some reason the file cannot be created or opened.
-   * @throws MissingFileAssociationException if the current network does not have a file.
-   * @throws IOException if there is some error while serializing the state of the network to disk.
-   */
-
-  public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
-    // FIXME implement serialization method
   }
 
   /**
