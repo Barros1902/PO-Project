@@ -1,6 +1,9 @@
 package xxl.core;
 
-public class Cell {
+import java.io.Serializable;
+
+public class Cell implements Serializable {
+	private static final long serialVersionUID = 202310121845L;
     private Point _point;
     private Content _content;
     public Cell(int row, int column, Content content){

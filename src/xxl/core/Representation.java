@@ -1,6 +1,9 @@
 package xxl.core;
 
-public abstract class Representation {
+import java.io.Serializable;
+
+public abstract class Representation implements Serializable{
+	private static final long serialVersionUID = 202310121901L;
     private final int _width;
     private final int _height;
 

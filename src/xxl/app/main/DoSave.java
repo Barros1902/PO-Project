@@ -21,12 +21,9 @@ class DoSave extends Command<Calculator> {
   
   @Override
   protected final void execute() throws FileOpenFailedException {
-	System.out.println("Aqui");
 	Spreadsheet sheet = _receiver.getSpreadsheet();
     if( sheet != null && sheet.getFileName() == null){
-	  System.out.println("Aqui2");
       addStringField("filename",Message.newSaveAs());
-	  System.out.println("Aqui3");
 	}
     if(_receiver.getSpreadsheet().getFileName() == null){
       String filename = stringField("filename");
