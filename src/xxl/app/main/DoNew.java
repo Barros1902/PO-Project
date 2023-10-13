@@ -20,17 +20,17 @@ class DoNew extends Command<Calculator> {
   
   @Override
   protected final void execute() throws CommandException{
-    // FIXME implement command
+	/*Verifies if theres is a spreadsheet if it was changed and if you want to keep the changes */
 	if (_receiver.getSpreadsheet() != null && _receiver.getSpreadsheet().getChanged() && Form.confirm(Message.saveBeforeExit())){
 
-		new DoSave(_receiver).execute();
+		new DoSave(_receiver).performCommand(); /* Saves it to save it */
 	}
-	addIntegerField("height" , Message.lines());
-    addIntegerField("width" , Message.columns());
+	addIntegerField("height" , Message.lines()); /* Asks for the lines to create the spreadsheet */
+    addIntegerField("width" , Message.columns()); /* Asks for the columns to create the spreadsheet */
     
     int width = integerField("width");
     int height = integerField("height");
-    _receiver.createSpreadSheet(width, height);
+    _receiver.createSpreadSheet(width, height); /* Creates the spreadsheet with specified measures */
 
 
   }

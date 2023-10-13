@@ -3,16 +3,11 @@ package xxl.core;
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
-import java.io.Reader;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.ArrayList;
 
 import xxl.core.exception.OutOfBoundsException;
 import xxl.core.exception.UnrecognizedEntryException;
-import xxl.core.Representation;
-import xxl.core.Calculator;
-import xxl.core.Spreadsheet;
+
 
 class Parser implements Serializable{
   private static final long serialVersionUID = 202310131018L;

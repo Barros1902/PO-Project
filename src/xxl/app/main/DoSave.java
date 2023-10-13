@@ -23,11 +23,11 @@ class DoSave extends Command<Calculator> {
   protected final void execute() throws FileOpenFailedException {
 	Spreadsheet sheet = _receiver.getSpreadsheet();
 		if( sheet != null){
-			if (sheet.getFileName() == null){
-				addStringField("filename",Message.newSaveAs());
+			if (sheet.getFileName() == null){	/* Se a spreadsheet não tiver nome entra no if */
+				addStringField("filename",Message.newSaveAs());	/* Pede o nome a atribuir */
 				String filename = stringField("filename");
 				try {
-					_receiver.saveAs(filename);
+					_receiver.saveAs(filename);	/* Salva o ficheiro com o novo nome */
 				}
 				catch(Exception e)
 				{ 
@@ -38,7 +38,7 @@ class DoSave extends Command<Calculator> {
 			else{
 				
 				try {
-					_receiver.saveAs(sheet.getFileName());
+					_receiver.saveAs(sheet.getFileName()); /* Salva o ficheiro com o nome antigo */
 				}
 				catch(Exception e)
 				{ 
