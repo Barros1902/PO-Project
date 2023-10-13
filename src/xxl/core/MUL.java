@@ -42,8 +42,8 @@ public class MUL extends BinaryFunction {
     public String toString(){
         try {
             return String.valueOf(evalInt())+"=MUL("+Transform(getValueArg1())+","+Transform(getValueArg2())+")";
-        } catch (ArrayCharException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            return "#VALUE"+"=MUL("+Transform(getValueArg1())+","+Transform(getValueArg2())+")";
         }
 
     }
