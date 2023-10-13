@@ -11,12 +11,21 @@ public abstract class Representation implements Serializable{
         _width = width;
         _height = height;
     }
+    /**
+     * @return the width of the representation
+     */
     public int getWidth(){
         return _width;
     }
+    /**
+     * @return the height of the representation
+     */
     public int getHeight(){
         return _height;
     }
+    /**
+     * @return if the row/column is out of bounds
+     */
     public Boolean outOfBounds(int row, int column){
         return row > _width || column > _height || row <= 0 || column <= 0;
     }

@@ -8,6 +8,10 @@ public class ADD extends BinaryFunction {
         super(arg1,arg2);
     }
 
+    /**
+     * get the values of the arguments and return the result of the function
+     * @return the result of the function
+     * */
     public int evalInt() throws ArrayCharException {
         try {
             int val1 = getValueArg1().EvalInt();
@@ -18,6 +22,9 @@ public class ADD extends BinaryFunction {
             throw new ArrayCharException();
         }
     }
+    /**
+     * If the arg is a reference, return the value of the reference, else return the value of the arg
+     * */
     private int isReference(Content arg){
         if(arg.toString().contains("=")){
             return Integer.parseInt(arg.toString().split("=")[0]);
@@ -27,6 +34,9 @@ public class ADD extends BinaryFunction {
             return arg.EvalInt();
         }
     }
+    /**
+     * Transform to the right format the arg
+     * */
     private String Transform(Content arg){
         if(arg.toString().contains("=")){
             return String.valueOf(arg.toString().split("=")[1]);
@@ -40,6 +50,9 @@ public class ADD extends BinaryFunction {
     protected Literals value() {
         return null;
     }
+    /**
+     * Representation to the terminal of the ADD function
+     * */
     @Override
     public String toString(){
         try {

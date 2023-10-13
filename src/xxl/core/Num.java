@@ -15,10 +15,16 @@ public class Num extends Literals{
     public int evalInt(){
         return _value;
     }
+    /**
+     * @return the value of Num of the cell
+     * */
     @Override
     public String display(){
         return Integer.toString(_value);
     }
+    /**
+     * @return the representation to the terminal
+     * */
     @Override
     public String toString(){
         return Integer.toString(_value);
