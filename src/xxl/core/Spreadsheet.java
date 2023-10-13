@@ -17,7 +17,7 @@ public class Spreadsheet implements Serializable {
   private static final long serialVersionUID = 202308312359L;
   private String _name;
   private User _user;
-
+  private Boolean _changed = false;
   private final Representation _representation;
 
   public Spreadsheet(int width, int height){
@@ -87,5 +87,14 @@ public class Spreadsheet implements Serializable {
     }
 
     return new Gama(firstRow, firstColumn, lastRow, lastColumn, this);
+  }
+
+  public Boolean getChanged(){
+	return _changed;
+  }
+
+  public void setChanged(Boolean state){
+	_changed = state;
+
   }
 }

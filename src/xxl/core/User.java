@@ -1,8 +1,9 @@
 package xxl.core;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class User {
-    
+public class User implements Serializable {
+	private static final long serialVersionUID = 202310131017L;
     private String _name;
     private List<String> _spreadSheets; 
     public User(String name){

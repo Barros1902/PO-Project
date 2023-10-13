@@ -22,19 +22,31 @@ class DoSave extends Command<Calculator> {
   @Override
   protected final void execute() throws FileOpenFailedException {
 	Spreadsheet sheet = _receiver.getSpreadsheet();
-    if( sheet != null && sheet.getFileName() == null){
-      addStringField("filename",Message.newSaveAs());
-	}
-    if(_receiver.getSpreadsheet().getFileName() == null){
-      String filename = stringField("filename");
-      try {
-		_receiver.saveAs(filename);
-	  }
-	  catch(Exception e)
-	  { 
-		new FileOpenFailedException(e);
-	  }
-    }
-
+		if( sheet != null){
+			if (sheet.getFileName() == null){
+				addStringField("filename",Message.newSaveAs());
+				String filename = stringField("filename");
+				try {
+					_receiver.saveAs(filename);
+				}
+				catch(Exception e)
+				{ 
+					new FileOpenFailedException(e);
+				}
+			}
+			
+			else{
+				
+				try {
+					_receiver.saveAs(sheet.getFileName());
+				}
+				catch(Exception e)
+				{ 
+					new FileOpenFailedException(e);
+				}
+				
+			}
+		}
   }
 }
+

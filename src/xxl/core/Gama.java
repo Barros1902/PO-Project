@@ -2,10 +2,13 @@ package xxl.core;
 
 import xxl.core.exception.OutOfBoundsException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Gama {
+public class Gama implements Serializable{
+	private static final long serialVersionUID = 202310131019L;
+
     private int BeginRow;
     private int BeginColumn;
     private int EndRow;

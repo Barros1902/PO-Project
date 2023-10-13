@@ -101,13 +101,12 @@ public class Calculator {
    *         an error while processing this file.
    */
   public void load(String filename) throws UnavailableFileException, MissingFileAssociationException, IOException {
-		System.out.println(filename);
 		ObjectInputStream objIn = null;
     try {
 	  objIn = new ObjectInputStream(new FileInputStream(filename));
       _spreadsheet = (Spreadsheet) objIn.readObject();
+	  _spreadsheet.setChanged(false);
     } catch (IOException | ClassNotFoundException e) {
-	  //System.out.println("Erro?");
       throw new UnavailableFileException(filename);
     }
 	finally {

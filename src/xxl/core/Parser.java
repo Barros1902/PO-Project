@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.Reader;
-
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.ArrayList;
 
@@ -14,7 +14,8 @@ import xxl.core.Representation;
 import xxl.core.Calculator;
 import xxl.core.Spreadsheet;
 
-class Parser {
+class Parser implements Serializable{
+  private static final long serialVersionUID = 202310131018L;
 
   private Spreadsheet _spreadsheet;
   
@@ -34,7 +35,7 @@ class Parser {
       while ((line = reader.readLine()) != null)
         parseLine(line);
     }
-
+	_spreadsheet.setChanged(true);
     return _spreadsheet;
   }
 

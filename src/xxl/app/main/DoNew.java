@@ -21,8 +21,13 @@ class DoNew extends Command<Calculator> {
   @Override
   protected final void execute() throws CommandException{
     // FIXME implement command
+	if (_receiver.getSpreadsheet() != null && _receiver.getSpreadsheet().getChanged() && Form.confirm(Message.saveBeforeExit())){
+
+		new DoSave(_receiver).execute();
+	}
+	addIntegerField("height" , Message.lines());
     addIntegerField("width" , Message.columns());
-    addIntegerField("height" , Message.lines());
+    
     int width = integerField("width");
     int height = integerField("height");
     _receiver.createSpreadSheet(width, height);

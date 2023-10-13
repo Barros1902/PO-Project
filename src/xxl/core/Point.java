@@ -1,7 +1,9 @@
 package xxl.core;
 
-public class Point {
-    
+import java.io.Serializable;
+
+public class Point implements Serializable {
+	private static final long serialVersionUID = 202310131023L;
     private int _row;
     private int _column;
 

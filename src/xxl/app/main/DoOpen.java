@@ -27,8 +27,13 @@ class DoOpen extends Command<Calculator> {
   
   @Override
   protected final void execute() throws CommandException, FileOpenFailedException {
-	addStringField("filename", Message.openFile());
+	
+	if (_receiver.getSpreadsheet() != null && _receiver.getSpreadsheet().getChanged() && Form.confirm(Message.saveBeforeExit())){
+
+		new DoSave(_receiver).execute();
+	}
     try {
+	  addStringField("filename", Message.openFile());
       String nameSaveAs= stringField("filename");
       _receiver.load(nameSaveAs);
     }
