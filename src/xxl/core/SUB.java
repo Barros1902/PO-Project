@@ -1,65 +1,35 @@
 package xxl.core;
 
+import javax.swing.text.AbstractDocument.Content;
+
 import xxl.core.exception.ArrayCharException;
 
 public class SUB extends BinaryFunction {
     public SUB(Content arg1, Content arg2){
         super(arg1,arg2);
     }
-    /**
-     * get the values of the arguments and return the result of the function
-     * @return the result of the function
-     * */
-
     public int evalInt() throws ArrayCharException {
         try {
             int val1 = getValueArg1().EvalInt();
             int val2 = getValueArg2().EvalInt();
 
-            return isReference(getValueArg1())-isReference(getValueArg2());
+            return val1-val2;
         } catch(Exception e){
             throw new ArrayCharException();
         }
     }
-    /**
-     * If the arg is a reference, return the value of the reference, else return the value of the arg
-     * */
-    private int isReference(Content arg){
-        if(arg.toString().contains("=")){
-            return Integer.parseInt(arg.toString().split("=")[0]);
-        } else {
-            if (arg.EvalInt()==0 && arg.evalString()==null)
-                return 0;
-            return arg.EvalInt();
-        }
-    }
-    /**
-     * Transform to the right format the arg
-     * */
-    private String Transform(Content arg){
-        if(arg.toString().contains("=")){
-            return String.valueOf(arg.toString().split("=")[1]);
-        } else {
-            return arg.toString();
-        }
-    }
-
 
     @Override
     protected Literals value() {
         return null;
     }
-    /**
-     * Representation to the terminal of the SUB function
-     * */
+
     @Override
-    public String toString(){
+    public String toString() {
         try {
-            return String.valueOf(evalInt())+"=SUB("+Transform(getValueArg1())+","+Transform(getValueArg2())+")";
+            return String.valueOf(evalInt())+"=SUB("+String.valueOf(getValueArg1().EvalInt())+","+String.valueOf(getValueArg2().EvalInt())+")";
         } catch (Exception e) {
-            return "#VALUE"+"=SUB("+Transform(getValueArg1())+","+Transform(getValueArg2())+")";
+            return "#VALUE"+"=SUB("+String.valueOf(getValueArg1().EvalInt())+","+String.valueOf(getValueArg2().EvalInt())+")";
         }
-
     }
-
 }

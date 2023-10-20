@@ -25,6 +25,10 @@ public class Gama implements Serializable{
         return BeginRow+";"+"BeginColumn"+":"+EndRow+";"+EndColumn;
     }
     public List<Cell> getCells() throws OutOfBoundsException {
+        // thing to do: check if the gama is a row or a column
+        if(BeginRow!=EndRow && BeginColumn!=EndColumn){
+            throw new OutOfBoundsException("Gama needs to be only a column or a row");
+        }
         List<Cell> cells = new ArrayList<Cell>();
         for (int i = BeginRow; i <= EndRow; i++) {
             for (int j = BeginColumn; j <= EndColumn; j++) {
