@@ -39,5 +39,30 @@ public class Gama implements Serializable{
         return cells;
 
     }
-    
+    public List<Content> getContents() throws OutOfBoundsException, InvalidCellRangeException {
+        List<Cell> cells;
+        try {
+            cells = getCells();
+        } catch (InvalidCellRangeException e) {
+            throw new InvalidCellRangeException(this.toString());
+        }
+
+        List<Content> contents = new ArrayList<>();
+        for (Cell cell : cells) {
+            contents.add(cell.getContent());
+        }
+        return contents;
+    }
+
+    public void clear() throws OutOfBoundsException, InvalidCellRangeException {
+        List<Cell> cells;
+        try {
+            cells = getCells();
+        } catch (InvalidCellRangeException e) {
+            throw new InvalidCellRangeException(this.toString());
+        }
+        for (Cell cell : cells) {
+            cell.setContent(new NULL());
+        }
+    }
 }
