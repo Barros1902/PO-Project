@@ -5,10 +5,10 @@ public class Num extends Literals{
     public Num(int value){
         _value = value;
     }
+
     @Override
-    public String evalString(){
-        //TODO: throw exception
-        return "";
+    protected Literals value() {
+        return null;
     }
 
     @Override

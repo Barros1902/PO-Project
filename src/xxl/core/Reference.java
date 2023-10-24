@@ -1,6 +1,9 @@
 package xxl.core;
 
 
+import xxl.core.exception.ArrayCharException;
+import xxl.core.exception.IntFailedException;
+
 public class Reference extends Content{
     private Cell _cell;
     public Reference(Cell cell){
@@ -24,16 +27,21 @@ public class Reference extends Content{
     public String getPoint(){
         return _cell.getPoint();
     }
+    @Override
+    public String CoordsString() {
+        return _cell.getPoint();
+    }
     /**
      * return the value of the cell if it gets a Null value return #VALUE
      * */
     private String getValue(){
-        if(_cell.getContent().evalString()==null){
-            return "#VALUE";
-        }
-        else{
+        try{
+            if (_cell.getContent().evalInt()==0 && _cell.getContent().evalString()==null)
+                return "#VALUE";
+        } catch (Exception e){
             return _cell.getContent().toString();
         }
+        return _cell.getContent().toString();
     }
 
     protected String valueString() {
@@ -48,14 +56,14 @@ public class Reference extends Content{
      * return the value of Num of the cell
      * */
     @Override
-    public int EvalInt(){
-        return _cell.EvalInt();
+    public int evalInt() throws ArrayCharException {
+        return _cell.evalInt();
     };
     /**
      * return the value of CharArray of the cell
      * */
     @Override
-    public String evalString(){
+    public String evalString() throws IntFailedException {
         return _cell.evalString();
     };
 }

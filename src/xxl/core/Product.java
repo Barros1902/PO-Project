@@ -1,22 +1,27 @@
 package xxl.core;
 
+import xxl.core.exception.ArrayCharException;
+
 public class Product extends RangeFunction {
-
-
-    public int evalint(){
-
-        return 0;
+    Product(Gama gama) {
+        super(gama);
     }
-    
-    public String display(){
-
-        return "a";
+    @Override
+    public int evalInt() throws ArrayCharException {
+        if (verifyInputInt()) {
+            throw new ArrayCharException();
+        }
+        int prod = 1;
+        for (Cell cell : getCells()) {
+            prod *= cell.evalInt();
+        }
+        return prod;
     }
 
-    
-    public String toString(){
-
-        return "a";
+    @Override
+    public String toString() {
+        //TODO:See
+        return super.toString();
     }
 }
 

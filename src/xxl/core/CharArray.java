@@ -1,15 +1,15 @@
 package xxl.core;
 
+import xxl.core.exception.ArrayCharException;
+import xxl.core.exception.IntFailedException;
+
 public class CharArray extends Literals{
     private final String _value;
     public CharArray(String value){
         _value = value;
     }
-    @Override
-    public int evalInt(){
-        //TODO: throw exception
-        return 0;
-    }
+
+
     @Override
     public String display(){
         return _value;
@@ -18,9 +18,15 @@ public class CharArray extends Literals{
     public String toString(){
         return _value;
     }
+
+    @Override
+    protected Literals value() {
+        return null;
+    }
+
+
     @Override
     public String evalString(){
-        //TODO: throw exception
         return _value;
     }
 }

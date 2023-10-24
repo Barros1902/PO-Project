@@ -1,5 +1,8 @@
 package xxl.core;
 
+import xxl.core.exception.ArrayCharException;
+import xxl.core.exception.IntFailedException;
+
 import java.io.Serializable;
 
 public class Cell implements Serializable {
@@ -20,10 +23,10 @@ public class Cell implements Serializable {
     public String getPoint(){
         return _point.toString();
     }
-    public int EvalInt(){
-        return _content.EvalInt();
+    public int evalInt() throws ArrayCharException {
+        return _content.evalInt();
     };
-    public String evalString(){
+    public String evalString() throws IntFailedException {
         return _content.evalString();
     };
     public String toString(){

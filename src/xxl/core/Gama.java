@@ -1,5 +1,6 @@
 package xxl.core;
 
+import xxl.app.exception.InvalidCellRangeException;
 import xxl.core.exception.OutOfBoundsException;
 
 import java.io.Serializable;
@@ -22,12 +23,12 @@ public class Gama implements Serializable{
         _spreadsheet = spreadsheet;
     }
     public String toString(){
-        return BeginRow+";"+"BeginColumn"+":"+EndRow+";"+EndColumn;
+        return BeginRow+";"+BeginColumn+":"+EndRow+";"+EndColumn;
     }
-    public List<Cell> getCells() throws OutOfBoundsException {
+    public List<Cell> getCells() throws OutOfBoundsException, InvalidCellRangeException {
         // thing to do: check if the gama is a row or a column
         if(BeginRow!=EndRow && BeginColumn!=EndColumn){
-            throw new OutOfBoundsException("Gama needs to be only a column or a row");
+            throw new InvalidCellRangeException(this.toString());
         }
         List<Cell> cells = new ArrayList<Cell>();
         for (int i = BeginRow; i <= EndRow; i++) {

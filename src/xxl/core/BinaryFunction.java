@@ -1,6 +1,11 @@
 package xxl.core;
 
 
+import xxl.core.exception.ArrayCharException;
+import xxl.core.exception.IntFailedException;
+
+import javax.swing.text.AbstractDocument;
+
 public abstract class BinaryFunction extends Function {
     
     private Content _arg1;
@@ -9,14 +14,17 @@ public abstract class BinaryFunction extends Function {
         _arg1 = arg1;
         _arg2 = arg2;
     }
+
+
+
     public Content getValueArg1(){
         return _arg1;
     }
     public Content getValueArg2(){
         return _arg2;
     }
-
-
-
-
+    @Override
+    public String evalString() throws IntFailedException {
+        throw new IntFailedException();
+    }
 }

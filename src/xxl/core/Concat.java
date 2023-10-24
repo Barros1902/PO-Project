@@ -1,22 +1,26 @@
 package xxl.core;
 
+import xxl.core.exception.IntFailedException;
+
 public class Concat extends RangeFunction {
 
-
-    public String evalString(){
-
-        return "a";
+    Concat(Gama gama) {
+        super(gama);
     }
-    
-    public String display(){
-
-        return "a";
+    @Override
+    public String evalString() throws IntFailedException{
+        if(verifyInputString()){
+            throw new IntFailedException();
+        }
+        StringBuilder concat = new StringBuilder();
+        for (Cell cell : getCells()) {
+            concat.append(cell.evalString());
+        }
+        return concat.toString();
     }
-
-    
     public String toString(){
-
-        return "a";
+        //TODO: Change to correct representation
+        return "Concat";
     }
 }
 

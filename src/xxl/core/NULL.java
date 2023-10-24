@@ -7,6 +7,11 @@ public class NULL extends Literals{
     }
 
     @Override
+    protected Literals value() {
+        return null;
+    }
+
+    @Override
     public int evalInt() {
         return 0;
     }

@@ -1,22 +1,28 @@
 package xxl.core;
 
+import xxl.core.exception.ArrayCharException;
+
 public class Average extends RangeFunction {
-
-
-    public int evalint(){
-
-        return 0;
-    }
-    
-    public String display(){
-
-        return "a";
+    Average(Gama gama) {
+        super(gama);
     }
 
-    
-    public String toString(){
+    @Override
+    public int evalInt() throws ArrayCharException{
+        if (verifyInputInt()) {
+            throw new ArrayCharException();
+        }
+        int sum = 0;
+        for (Cell cell : getCells()) {
+            sum += cell.evalInt();
+        }
+        return sum/getCells().size();
+    }
 
-        return "a";
+    @Override
+    public String toString() {
+        //TODO:See
+        return super.toString();
     }
 }
 

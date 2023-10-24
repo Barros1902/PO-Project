@@ -1,22 +1,29 @@
 package xxl.core;
 
+import xxl.core.exception.IntFailedException;
+
 public class Coalesce extends RangeFunction {
-
-
-    public String evalString(){
-
-        return "a";
+    Coalesce(Gama gama) {
+        super(gama);
     }
-    
-    public String display(){
+    public String evalString() throws IntFailedException {
+        if(verifyInputInt()){
+            return "";
+        }
+        for (Cell cell : getCells()) {
+            try{
+                return cell.evalString();
+            } catch (Exception e){
+                //Do nothing
+            }
 
-        return "a";
+        }
+        return "";
     }
-
-    
     public String toString(){
-
-        return "a";
+        //TODO: Change to correct representation
+        return "Coalesce";
     }
+
 }
 
