@@ -21,8 +21,11 @@ public class Coalesce extends RangeFunction {
         return "";
     }
     public String toString(){
-        //TODO: Change to correct representation
-        return "Coalesce";
+        try {
+            return evalString() + "=COALESCE(" + _gama.toString() + ")";
+        } catch (Exception e) {
+            return "#VALUE" + "=COALESCE(" + _gama.toString() + ")";
+        }
     }
 
 }

@@ -28,11 +28,48 @@ public class CutBuffer { //Singleton
         gama.clear();
         return _instance;
     }
-    /*Colar Esta operac¸ ˜ao insere o conte´udo do cut buffer numa gama da folha de destino. Se o cut buffer estiver vazio, n˜ao ´e realizada
-    qualquer operac¸ ˜ao. Se a gama for uma ´unica c´elula, todo o cut buffer deve ser inserido a partir da c´elula especificada, at´e
-    ser atingido o limite da folha de c´alculo. Caso contr´ario, se a dimens˜ao do cut buffer for diferente da da gama de destino,
-    n˜ao insere nenhum valor. O conte´udo do cut buffer n˜ao ´e alterado pela operac¸ ˜ao. Os objectos inseridos no destino s˜ao
-    independentes dos que est˜ao no cut buffer.*/
-    //TODO:
+
+    public static void paste(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+        if(_instance == null)
+            return;
+        else if (_instance._content.size()==1){
+            SingleCell(gama);
+        }
+        else{
+            MultipleCell(gama);
+        }
+    }
+    private static void SingleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+        Spreadsheet spreadsheet = gama.getSpreadsheet();
+        if (spreadsheet == null)
+            return;
+        try{
+            if(spreadsheet.enoughSpace(gama.getCells().get(0),_instance._content.size())){
+                for(int i=0;i<_instance._content.size();i++){
+                    spreadsheet.getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i).getContent());
+                }
+
+            }
+            else{
+                return;
+            }
+        } catch (Exception e){
+            return;
+        }
+        return;
+
+    }
+    private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+        try{
+            if(gama.getContents().size()!=_instance._content.size())
+                return;
+            for(int i=0;i<gama.getContents().size();i++){
+                gama.getCells().get(i).setContent(_instance._content.get(i).getContent());
+            }
+        } catch (Exception e){
+            return;
+        }
+        return;
+    }
 
 }

@@ -20,8 +20,11 @@ public class Product extends RangeFunction {
 
     @Override
     public String toString() {
-        //TODO:See
-        return super.toString();
+        try {
+            return String.valueOf(evalInt()) + "=PRODUCT(" + _gama.toString() + ")";
+        } catch (Exception e) {
+            return "#VALUE" + "=PRODUCT(" + _gama.toString() + ")";
+        }
     }
 }
 

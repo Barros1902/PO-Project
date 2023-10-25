@@ -32,7 +32,12 @@ public class Cell implements Serializable {
     public String toString(){
         return String.valueOf(_point.getRow())+";"+String.valueOf(_point.getColumn())+"|"+_content.toString();
     }
-
+    public int getRow(){
+        return _point.getRow();
+    }
+    public int getColumn(){
+        return _point.getColumn();
+    }
     public void write(){
 
     }

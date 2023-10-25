@@ -29,6 +29,4 @@ public class User implements Serializable {
     public void addSpreadSheet(String s){
         _spreadSheets.add(s);
     }
-
-    
 }

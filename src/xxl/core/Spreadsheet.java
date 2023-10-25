@@ -129,6 +129,13 @@ public class Spreadsheet implements Serializable {
      */
   public void setChanged(Boolean state){
 	_changed = state;
+  }
+  public boolean enoughSpace(Cell cell,int distance){
+    int row = cell.getRow();
+    int column = cell.getColumn();
+    int width = _representation.getWidth();
+    int height = _representation.getHeight();
+    return row + distance < width || column + distance < height;
 
   }
 }

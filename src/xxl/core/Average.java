@@ -21,8 +21,11 @@ public class Average extends RangeFunction {
 
     @Override
     public String toString() {
-        //TODO:See
-        return super.toString();
+        try {
+            return String.valueOf(evalInt()) + "=AVERAGE(" + _gama.toString() + ")";
+        } catch (Exception e) {
+            return "#VALUE" + "=AVERAGE(" + _gama.toString() + ")";
+        }
     }
 }
 

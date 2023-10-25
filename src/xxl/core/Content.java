@@ -13,6 +13,10 @@ public abstract class Content implements Serializable{
     public abstract String evalString() throws IntFailedException;
     public abstract String toString();
 
+    public Content getContent() {
+        return this;
+    }
+
     public String CoordsString() throws CoordsException {
         throw new CoordsException();
     }

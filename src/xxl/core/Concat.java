@@ -19,8 +19,11 @@ public class Concat extends RangeFunction {
         return concat.toString();
     }
     public String toString(){
-        //TODO: Change to correct representation
-        return "Concat";
+        try {
+            return evalString() + "=CONCAT(" + _gama.toString() + ")";
+        } catch (Exception e) {
+            return "#VALUE" + "=CONCAT(" + _gama.toString() + ")";
+        }
     }
 }
 

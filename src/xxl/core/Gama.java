@@ -22,6 +22,12 @@ public class Gama implements Serializable{
         EndColumn = endColumn;
         _spreadsheet = spreadsheet;
     }
+    public int getBeginRow(){
+        return BeginRow;
+    }
+    public int getBeginColumn(){
+        return BeginColumn;
+    }
     public String toString(){
         return BeginRow+";"+BeginColumn+":"+EndRow+";"+EndColumn;
     }
@@ -64,5 +70,8 @@ public class Gama implements Serializable{
         for (Cell cell : cells) {
             cell.setContent(new NULL());
         }
+    }
+    public Spreadsheet getSpreadsheet(){
+        return _spreadsheet;
     }
 }
