@@ -3,15 +3,18 @@ package xxl.core;
 import xxl.app.exception.InvalidCellRangeException;
 import xxl.core.exception.OutOfBoundsException;
 
+import java.util.ArrayList;
 import java.util.List;
 public class CutBuffer { //Singleton
     private static CutBuffer _instance;
     private List<Content> _content;
+    private boolean _isRow;
 
     private CutBuffer(List<Content> content){
         _content = content;
     }
     public static CutBuffer copy(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+        _instance._isRow = gama.isRow();
         if(_instance == null)
             _instance = new CutBuffer(gama.getContents());
         else{
@@ -20,6 +23,7 @@ public class CutBuffer { //Singleton
         return _instance;
     }
     public static CutBuffer cut(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+        _instance._isRow = gama.isRow();
         if(_instance == null)
             _instance = new CutBuffer(gama.getContents());
         else{
@@ -55,6 +59,29 @@ public class CutBuffer { //Singleton
         for (int i = 0; i < _instance._content.size(); i++) {
             gama.getCellsNoCopy().get(i).setContent(_instance._content.get(i));
         }
+    }
+    public List<String> showCutBuffer(){
+        List<String> showList = new ArrayList<>();
+        StringBuilder temp = new StringBuilder();
+        int i = 1;
+        if (_instance._isRow){
+            for (Content content : _instance._content) {
+                temp.append("1;").append(String.valueOf(i)).append("|");
+                temp.append(content.toString());
+                showList.add(String.valueOf(temp));
+                i++;
+                temp=new StringBuilder();
+            }
+        } else {
+            for (Content content : _instance._content) {
+                temp.append(String.valueOf(i)).append(";1").append("|");
+                temp.append(content.toString());
+                showList.add(String.valueOf(temp));
+                i++;
+                temp=new StringBuilder();
+            }
+        }
+        return showList;
     }
 
 }
