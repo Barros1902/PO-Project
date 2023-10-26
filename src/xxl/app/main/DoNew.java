@@ -25,11 +25,9 @@ class DoNew extends Command<Calculator> {
 
 		new DoSave(_receiver).performCommand(); /* Saves it to save it */
 	}
-	addIntegerField("height" , Message.lines()); /* Asks for the lines to create the spreadsheet */
-    addIntegerField("width" , Message.columns()); /* Asks for the columns to create the spreadsheet */
-    
-    int width = integerField("width");
-    int height = integerField("height");
+
+	int height = Form.requestInteger(Message.lines());
+	int width = Form.requestInteger(Message.columns());
     _receiver.createSpreadSheet(width, height); /* Creates the spreadsheet with specified measures */
 
 

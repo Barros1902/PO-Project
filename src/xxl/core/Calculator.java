@@ -68,7 +68,7 @@ public class Calculator {
    */
   public void saveAs(String filename) throws /*FileNotFoundException, MissingFileAssociationException, */IOException {
     // FIXME implement serialization method and throw exceptions
-
+	_spreadsheet.setChanged(false);
 	ObjectOutputStream obOut = null;
 	try {
 
