@@ -138,7 +138,7 @@ public class Parser implements Serializable{
     Gama range = _spreadsheet.createRange(rangeDescription);
     return switch (functionName) {
       case "CONCAT" -> new Concat(range);
-      case "COASLECE" -> new Coalesce(range);
+      case "COALESCE" -> new Coalesce(range);
       case "PRODUCT" -> new Product(range);
       case "AVERAGE" -> new Average(range);
       default -> throw new UnrecognizedEntryException(rangeDescription);
