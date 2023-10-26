@@ -14,6 +14,9 @@ public class Average extends RangeFunction {
         }
         int sum = 0;
         for (Cell cell : getCells()) {
+            if (verifyIsNull(cell)){
+                throw new ArrayCharException();
+            }
             sum += cell.evalInt();
         }
         return sum/getCells().size();

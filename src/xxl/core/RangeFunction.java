@@ -70,4 +70,16 @@ public abstract class RangeFunction extends Function{
         }
         return true;
     }
+    public boolean verifyIsNull(Cell cell){
+        boolean result = false;
+        try {
+            cell.getContent().evalString();
+            cell.getContent().evalInt();
+            result = true;
+        } catch (Exception e) {
+            //Do nothing
+        }
+
+        return result;
+    }
 }

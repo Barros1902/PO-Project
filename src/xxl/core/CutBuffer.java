@@ -44,21 +44,26 @@ public class CutBuffer { //Singleton
         }
     }
     private static void SingleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        if (!gama.getSpreadsheet().enoughSpace(gama.getCellsNoCopy().get(0), _instance._content.size()))
+        try{
+            if (!gama.getSpreadsheet().enoughSpace(gama.getCellsNoCopy().get(0), _instance._content.size()))
+                return;
+            if(gama.isRow()){
+                for (int i = 0; i < _instance._content.size(); i++) {
+                    gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
+                }
+            } else {
+                for (int i = 0; i < _instance._content.size(); i++) {
+                    gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
+                }
+            }
+        } catch (Exception e){
             return;
-        if(gama.isRow()){
-            for (int i = 0; i < _instance._content.size(); i++) {
-                gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
-            }
-        } else {
-            for (int i = 0; i < _instance._content.size(); i++) {
-                gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
-            }
         }
+
     }
     private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
         for (int i = 0; i < _instance._content.size(); i++) {
-            gama.getCellsNoCopy().get(i).setContent(_instance._content.get(i));
+            SingleCell(new Gama(gama.getCellsNoCopy().get(i).getRow(),gama.getCellsNoCopy().get(i).getColumn(),gama.getCellsNoCopy().get(i).getRow(),gama.getCellsNoCopy().get(i).getColumn(),gama.getSpreadsheet()));
         }
     }
     public static List<String> showCutBuffer(){

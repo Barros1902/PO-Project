@@ -25,6 +25,7 @@ class DoShowValues extends Command<Spreadsheet> {
 	String Tocompare = stringField("Tocompare");
     List<Cell> cells = ((HashMap)_receiver.getRepresentation()).ShowValues(Tocompare);
 	cells.sort(new SortCells());
+
 	for (Cell celula : cells){
 		_display.addLine(celula);		
 	}

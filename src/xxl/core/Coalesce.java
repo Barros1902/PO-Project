@@ -22,18 +22,6 @@ public class Coalesce extends RangeFunction {
         }
         return result;
     }
-    public boolean verifyIsNull(Cell cell){
-        boolean result = false;
-        try {
-            cell.getContent().evalString();
-            cell.getContent().evalInt();
-            result = true;
-        } catch (Exception e) {
-            //Do nothing
-        }
-
-        return result;
-    }
     @Override
     public Content getContent() {
         return new Coalesce(_gama.copy());

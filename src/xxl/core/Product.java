@@ -11,8 +11,12 @@ public class Product extends RangeFunction {
         if (verifyInputInt()) {
             throw new ArrayCharException();
         }
+
         int prod = 1;
         for (Cell cell : getCells()) {
+            if (verifyIsNull(cell)){
+                throw new ArrayCharException();
+            }
             prod *= cell.evalInt();
         }
         return prod;
