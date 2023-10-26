@@ -9,7 +9,7 @@ import xxl.core.exception.OutOfBoundsException;
 import xxl.core.exception.UnrecognizedEntryException;
 
 
-class Parser implements Serializable{
+public class Parser implements Serializable{
   private static final long serialVersionUID = 202310131018L;
 
   private Spreadsheet _spreadsheet;
@@ -71,9 +71,8 @@ class Parser implements Serializable{
   }
 
   // parse the begining of an expression
-  Content parseContent(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException {
+  public Content parseContent(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException {
     char c = contentSpecification.charAt(0);
-
     if (c == '=')
       return parseContentExpression(contentSpecification.substring(1));
     else
@@ -106,8 +105,8 @@ class Parser implements Serializable{
     String[] components = functionSpecification.split("[()]");
     if (components[1].contains(","))
       return parseBinaryFunction(components[0], components[1]);
-    return null;
-    /*return parseIntervalFunction(components[0], components[1]);*/
+    
+    return parseIntervalFunction(components[0], components[1]);
   }
 
 
@@ -134,18 +133,17 @@ class Parser implements Serializable{
       return parseLiteral(argExpression);
   }
 
-  /* Para a
-  private Content parseIntervalFunction(String functionName, String rangeDescription)
-    throws UnrecognizedEntryException  , more exceptions ?  {
-    Range range = _spredsheet.buildRange(rangeDescription);
+  
+  private Content parseIntervalFunction(String functionName, String rangeDescription) throws UnrecognizedEntryException, OutOfBoundsException{
+    Gama range = _spreadsheet.createRange(rangeDescription);
     return switch (functionName) {
-      case "CONCAT" -> new Concat com range 
-      case "COASLECE" -> new Coaslece com range;
-      case "PRODUCT" -> new Product com range;
-      case "AVERAGE" -> new Average com range;
-      default -> dar erro com função inválida: functionName;
+      case "CONCAT" -> new Concat(range);
+      case "COASLECE" -> new Coalesce(range);
+      case "PRODUCT" -> new Product(range);
+      case "AVERAGE" -> new Average(range);
+      default -> throw new UnrecognizedEntryException(rangeDescription);
     };
-  }*/
+  }
 
 
 

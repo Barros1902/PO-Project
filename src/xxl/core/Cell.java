@@ -21,7 +21,7 @@ public class Cell implements Serializable {
         return new Cell(this);
     }
 
-    protected void setContent(Content content){
+    public void setContent(Content content){
         _content = content;
     }
     public Content getContent(){

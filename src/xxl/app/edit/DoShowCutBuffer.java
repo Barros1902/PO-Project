@@ -2,6 +2,7 @@ package xxl.app.edit;
 
 import pt.tecnico.uilib.menus.Command;
 import xxl.core.Spreadsheet;
+import xxl.core.CutBuffer;
 // FIXME import classes
 
 /**
@@ -15,6 +16,8 @@ class DoShowCutBuffer extends Command<Spreadsheet> {
   
   @Override
   protected final void execute() {
-    // FIXME implement command
+
+	_display.addLine(showcutbuffer);
+	_display.display();
   }
 }
