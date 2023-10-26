@@ -10,7 +10,6 @@ import xxl.core.Content;
 import xxl.core.Gama;
 import xxl.core.Spreadsheet;
 import xxl.core.Parser;
-// FIXME import classes
 import xxl.core.exception.OutOfBoundsException;
 import xxl.core.exception.UnrecognizedEntryException;
 
@@ -28,6 +27,7 @@ class DoInsert extends Command<Spreadsheet> {
   
   @Override
   protected final void execute() throws CommandException {
+	_receiver.setChanged(true);
 	Parser _parser = new Parser(_receiver);
 	String range = stringField("range");
 	String content = stringField("content");
