@@ -28,7 +28,7 @@ class DoShow extends Command<Spreadsheet> {
     try {
       Gama gama = _receiver.createRange(range);
 
-      ArrayList<Cell> listCells = (ArrayList<Cell>) gama.getCells();
+      ArrayList<Cell> listCells = (ArrayList<Cell>) gama.getCellsNoCopy();
         for (Cell cell : listCells) {
             _display.addLine(cell.toString());
 			
