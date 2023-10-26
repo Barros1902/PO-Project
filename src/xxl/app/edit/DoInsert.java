@@ -28,7 +28,7 @@ class DoInsert extends Command<Spreadsheet> {
   
   @Override
   protected final void execute() throws CommandException {
-	Parser _parser = new Parser();
+	Parser _parser = new Parser(_receiver);
 	String range = stringField("range");
 	String content = stringField("content");
 	Content conteudo = null;

@@ -20,6 +20,9 @@ public class Parser implements Serializable{
   public Parser() {
     
   }
+  public Parser(Spreadsheet spreadsheet){
+	_spreadsheet = spreadsheet;
+  }
 
   public Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException /* More Exceptions? */ {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
@@ -88,6 +91,7 @@ public class Parser implements Serializable{
         return new Num(val);
       } catch (NumberFormatException nfe) {
         throw new UnrecognizedEntryException("Número inválido: " + literalExpression);
+
       }
     }
   }
