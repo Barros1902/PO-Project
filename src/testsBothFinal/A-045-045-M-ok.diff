@@ -1,0 +1,86 @@
+*** testsBothFinal/A-045-045-M-ok.out	2023-10-26 05:36:05.590868673 +0100
+--- testsBothFinal/A-045-045-M-ok.outhyp	2023-10-26 05:37:29.800361953 +0100
+***************
+*** 5,12 ****
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 4
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 5,11 ----
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 15,24 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 2
+! Especifique a gama (startline;startcol:endline;endcol): 1;3:3;3
+! Insira o conteúdo da célula: 9
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 14,20 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Insira o conteúdo da célula: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 27,35 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 1;3:3;3
+! 1;3|9
+  2;3|9
+  3;3|9
+  Menu de Edição
+--- 23,29 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 1;3|9
+  2;3|9
+  3;3|9
+  Menu de Edição
+***************
+*** 41,52 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 0
+--- 35,45 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 
+\ No newline at end of file

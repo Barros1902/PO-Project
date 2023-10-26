@@ -21,12 +21,6 @@ public class Reference extends Content{
         return getValue()+"="+ _cell.getPoint();
 
     }
-    /**
-     * return the point
-     * */
-    public String getPoint(){
-        return _cell.getPoint();
-    }
     @Override
     public String CoordsString() {
         return _cell.getPoint();

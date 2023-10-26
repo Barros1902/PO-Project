@@ -1,0 +1,104 @@
+*** testsBothFinal/A-038-038-M-ok.out	2023-10-26 05:36:05.587535360 +0100
+--- testsBothFinal/A-038-038-M-ok.outhyp	2023-10-26 05:37:29.407030987 +0100
+***************
+*** 5,12 ****
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 4
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 5,11 ----
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 15,23 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 2;3
+! 2;3|#VALUE=AVERAGE(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 14,20 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 2;3|18=AVERAGE(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 27,35 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 3;1:3;3
+! 3;1|15=AVERAGE(1;1:2;1)
+  3;2|5
+  3;3|10535=PRODUCT(1;2:3;2)
+  Menu de Edição
+--- 24,30 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 3;1|15=AVERAGE(1;1:2;1)
+  3;2|5
+  3;3|10535=PRODUCT(1;2:3;2)
+  Menu de Edição
+***************
+*** 41,49 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 4;1
+! 4;1|#VALUE=PRODUCT(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 36,42 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 4;1|0=PRODUCT(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 53,64 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 0
+--- 46,56 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 
+\ No newline at end of file

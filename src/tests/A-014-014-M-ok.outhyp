@@ -14,7 +14,9 @@ Escolha uma opção: Menu de Edição
 6 - Colar
 7 - Mostrar 'cut buffer'
 0 - Sair
-Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 3;3|49
+Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 1;1|5
+1;2|49
+1;3|5
 Menu de Edição
 1 - Visualizar
 2 - Inserir
