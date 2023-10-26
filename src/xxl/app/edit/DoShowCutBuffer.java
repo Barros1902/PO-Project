@@ -16,8 +16,9 @@ class DoShowCutBuffer extends Command<Spreadsheet> {
   
   @Override
   protected final void execute() {
-
-	_display.addLine(showcutbuffer);
-	_display.display();
+	for (String text : CutBuffer.showCutBuffer()) {
+		_display.addNewLine(text, false);
+		_display.display();	
+	}
   }
 }

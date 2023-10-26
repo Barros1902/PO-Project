@@ -14,21 +14,22 @@ public class CutBuffer { //Singleton
         _content = content;
     }
     public static CutBuffer copy(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        _instance._isRow = gama.isRow();
         if(_instance == null)
             _instance = new CutBuffer(gama.getContents());
         else{
             _instance._content = gama.getContents();
         }
+		_instance._isRow = gama.isRow();
         return _instance;
     }
     public static CutBuffer cut(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        _instance._isRow = gama.isRow();
+        
         if(_instance == null)
             _instance = new CutBuffer(gama.getContents());
         else{
             _instance._content = gama.getContents();
         }
+		_instance._isRow = gama.isRow();
         gama.clear();
         return _instance;
     }
@@ -60,7 +61,7 @@ public class CutBuffer { //Singleton
             gama.getCellsNoCopy().get(i).setContent(_instance._content.get(i));
         }
     }
-    public List<String> showCutBuffer(){
+    public static List<String> showCutBuffer(){
         List<String> showList = new ArrayList<>();
         StringBuilder temp = new StringBuilder();
         int i = 1;
