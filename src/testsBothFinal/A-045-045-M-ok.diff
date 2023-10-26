@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 *** testsBothFinal/A-045-045-M-ok.out	2023-10-19 17:31:45.000000000 +0100
 --- testsBothFinal/A-045-045-M-ok.outhyp	2023-10-26 06:54:59.044715343 +0100
+=======
+*** testsBothFinal/A-045-045-M-ok.out	2023-10-26 05:36:05.590868673 +0100
+--- testsBothFinal/A-045-045-M-ok.outhyp	2023-10-26 06:42:03.969068742 +0100
+>>>>>>> Stashed changes
 ***************
 *** 5,12 ****
   4 - Menu de Edição
