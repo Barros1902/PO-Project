@@ -9,11 +9,31 @@ public class MUL extends BinaryFunction {
 
     @Override
     public int evalInt() throws ArrayCharException {
+        boolean isNULL = false;
+        try{
+            getValueArg1().evalString();
+            isNULL = true;
+        } catch (Exception e){
+            isNULL= false;
+        }
+
+        try{
+            if (!isNULL)
+            {
+                getValueArg2().evalString();
+                isNULL = true;
+            }
+        }catch (Exception e){
+            isNULL= false;
+        }
+
         try {
             int val1 = getValueArg1().evalInt();
             int val2 = getValueArg2().evalInt();
-
-            return val1*val2;
+            if (!isNULL)
+                return val1*val2;
+            else
+                throw new ArrayCharException();
         } catch(Exception e){
             throw new ArrayCharException();
         }
@@ -33,6 +53,7 @@ public class MUL extends BinaryFunction {
     public String toString() {
         String Coords1 = null;
         String Coords2 = null;
+
 
         try {
             Coords1 = getValueArg1().CoordsString();
