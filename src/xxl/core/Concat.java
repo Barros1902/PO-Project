@@ -9,12 +9,11 @@ public class Concat extends RangeFunction {
     }
     @Override
     public String evalString() throws IntFailedException{
-        if(verifyInputString()){
-            throw new IntFailedException();
-        }
+        //TODO: implement this
         StringBuilder concat = new StringBuilder();
+        concat.append("'");
         for (Cell cell : getCells()) {
-            concat.append(cell.evalString());
+            concat.append(cell.evalString().substring(1));
         }
         return concat.toString();
     }

@@ -7,18 +7,32 @@ public class Coalesce extends RangeFunction {
         super(gama);
     }
     public String evalString() throws IntFailedException {
-        if(verifyInputInt()){
-            return "";
-        }
+        String result = "";
         for (Cell cell : getCells()) {
             try{
-                return cell.evalString();
+                if (verifyIsNull(cell)){
+                    continue;
+                }
+                result= cell.evalString();
+                break;
             } catch (Exception e){
                 //Do nothing
             }
 
         }
-        return "";
+        return result;
+    }
+    public boolean verifyIsNull(Cell cell){
+        boolean result = false;
+        try {
+            cell.getContent().evalString();
+            cell.getContent().evalInt();
+            result = true;
+        } catch (Exception e) {
+            //Do nothing
+        }
+
+        return result;
     }
     @Override
     public Content getContent() {
