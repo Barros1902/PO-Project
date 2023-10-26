@@ -5,7 +5,7 @@ import xxl.core.exception.IntFailedException;
 
 import java.util.List;
 
-public class RangeFunction extends Function{
+public abstract class RangeFunction extends Function{
     Gama _gama;
     RangeFunction(Gama gama){
         _gama = gama;
