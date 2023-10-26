@@ -9,6 +9,10 @@ public class CharArray extends Literals{
         _value = value;
     }
 
+    @Override
+    public Content getContent() {
+        return new CharArray(_value);
+    }
 
     @Override
     public String display(){

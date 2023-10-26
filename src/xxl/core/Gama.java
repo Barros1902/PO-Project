@@ -21,11 +21,15 @@ public class Gama implements Serializable{
         EndRow = endRow;
         EndColumn = endColumn;
         _spreadsheet = spreadsheet;
+
     }
-    public int getBeginRow(){
+    public boolean isRow(){
+        return BeginRow==EndRow;
+    }
+    public int getBeginRow() {
         return BeginRow;
     }
-    public int getBeginColumn(){
+    public int getBeginColumn() {
         return BeginColumn;
     }
     public String toString(){
@@ -39,11 +43,29 @@ public class Gama implements Serializable{
         List<Cell> cells = new ArrayList<Cell>();
         for (int i = BeginRow; i <= EndRow; i++) {
             for (int j = BeginColumn; j <= EndColumn; j++) {
+                cells.add(_spreadsheet.getCell(i,j).getCell());
+            }
+        }
+        return cells;
+
+    }
+    public List<Cell> getCellsNoCopy() throws OutOfBoundsException, InvalidCellRangeException {
+        // thing to do: check if the gama is a row or a column
+        if(BeginRow!=EndRow && BeginColumn!=EndColumn){
+            throw new InvalidCellRangeException(this.toString());
+        }
+        List<Cell> cells = new ArrayList<Cell>();
+        for (int i = BeginRow; i <= EndRow; i++) {
+            for (int j = BeginColumn; j <= EndColumn; j++) {
                 cells.add(_spreadsheet.getCell(i,j));
             }
         }
         return cells;
 
+    }
+
+    public Gama copy(){
+        return new Gama(BeginRow,BeginColumn,EndRow,EndColumn,_spreadsheet);
     }
     public List<Content> getContents() throws OutOfBoundsException, InvalidCellRangeException {
         List<Cell> cells;
@@ -63,7 +85,7 @@ public class Gama implements Serializable{
     public void clear() throws OutOfBoundsException, InvalidCellRangeException {
         List<Cell> cells;
         try {
-            cells = getCells();
+            cells = getCellsNoCopy();
         } catch (InvalidCellRangeException e) {
             throw new InvalidCellRangeException(this.toString());
         }

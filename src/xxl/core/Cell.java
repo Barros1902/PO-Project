@@ -13,12 +13,19 @@ public class Cell implements Serializable {
         _point = new Point(row,column);
         _content = content;
     }
+    public Cell(Cell cell){
+        _point = cell._point.getPoint();
+        _content = cell.getContent();
+    }
+    public Cell getCell(){
+        return new Cell(this);
+    }
 
     protected void setContent(Content content){
         _content = content;
     }
     public Content getContent(){
-        return _content;
+        return _content.getContent();
     }
     public String getPoint(){
         return _point.toString();

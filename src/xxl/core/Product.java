@@ -17,6 +17,10 @@ public class Product extends RangeFunction {
         }
         return prod;
     }
+    @Override
+    public Content getContent() {
+        return new Product(_gama.copy());
+    }
 
     @Override
     public String toString() {

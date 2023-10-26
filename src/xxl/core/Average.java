@@ -18,7 +18,9 @@ public class Average extends RangeFunction {
         }
         return sum/getCells().size();
     }
-
+    public Content getContent() {
+        return new Average(_gama.copy());
+    }
     @Override
     public String toString() {
         try {

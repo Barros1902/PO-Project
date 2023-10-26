@@ -10,7 +10,10 @@ public class Num extends Literals{
     protected Literals value() {
         return null;
     }
-
+    @Override
+    public Content getContent(){
+        return new Num(_value);
+    }
     @Override
     public int evalInt(){
         return _value;

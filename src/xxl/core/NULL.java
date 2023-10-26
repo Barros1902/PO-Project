@@ -5,7 +5,10 @@ public class NULL extends Literals{
     public String evalString(){
         return null;
     }
-
+    @Override
+    public Content getContent(){
+        return new NULL();
+    }
     @Override
     protected Literals value() {
         return null;

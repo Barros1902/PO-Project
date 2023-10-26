@@ -27,7 +27,10 @@ public class DIV extends BinaryFunction {
     protected Literals value() {
         return null;
     }
-
+    @Override
+    public Content getContent(){
+        return new DIV(getValueArg1().getContent(),getValueArg2().getContent());
+    }
 
     @Override
     public String toString() {

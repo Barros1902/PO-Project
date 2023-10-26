@@ -27,6 +27,10 @@ public class ADD extends BinaryFunction {
     protected Literals value() {
         return null;
     }
+    @Override
+    public Content getContent() {
+        return new ADD(getValueArg1(),getValueArg2());
+    }
 
 
     @Override

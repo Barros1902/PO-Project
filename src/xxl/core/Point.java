@@ -11,6 +11,10 @@ public class Point implements Serializable {
         _row = row;
         _column = column;
     }
+
+    public Point getPoint(){
+        return new Point(_row,_column);
+    }
     public String toString(){
         return String.valueOf(_row)+";"+String.valueOf(_column);
     }

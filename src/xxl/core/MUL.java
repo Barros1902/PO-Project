@@ -24,7 +24,10 @@ public class MUL extends BinaryFunction {
     protected Literals value() {
         return null;
     }
-
+    @Override
+    public Content getContent() {
+        return new MUL(getValueArg1().getContent(), getValueArg2().getContent());
+    }
 
     @Override
     public String toString() {

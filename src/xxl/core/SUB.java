@@ -24,7 +24,10 @@ public class SUB extends BinaryFunction {
     protected Literals value() {
         return null;
     }
-
+    @Override
+    public Content getContent() {
+        return new SUB(getValueArg1().getContent(),getValueArg2().getContent());
+    }
 
     @Override
     public String toString() {

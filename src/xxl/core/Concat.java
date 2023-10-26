@@ -18,6 +18,10 @@ public class Concat extends RangeFunction {
         }
         return concat.toString();
     }
+    @Override
+    public Content getContent() {
+        return new Concat(_gama.copy());
+    }
     public String toString(){
         try {
             return evalString() + "=CONCAT(" + _gama.toString() + ")";

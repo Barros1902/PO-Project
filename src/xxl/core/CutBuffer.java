@@ -28,11 +28,10 @@ public class CutBuffer { //Singleton
         gama.clear();
         return _instance;
     }
-
     public static void paste(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
         if(_instance == null)
             return;
-        else if (_instance._content.size()==1){
+        else if (gama.getCells().size()==1){
             SingleCell(gama);
         }
         else{
@@ -40,36 +39,22 @@ public class CutBuffer { //Singleton
         }
     }
     private static void SingleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        Spreadsheet spreadsheet = gama.getSpreadsheet();
-        if (spreadsheet == null)
+        if (!gama.getSpreadsheet().enoughSpace(gama.getCellsNoCopy().get(0), _instance._content.size()))
             return;
-        try{
-            if(spreadsheet.enoughSpace(gama.getCells().get(0),_instance._content.size())){
-                for(int i=0;i<_instance._content.size();i++){
-                    spreadsheet.getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i).getContent());
-                }
-
+        if(gama.isRow()){
+            for (int i = 0; i < _instance._content.size(); i++) {
+                gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
             }
-            else{
-                return;
+        } else {
+            for (int i = 0; i < _instance._content.size(); i++) {
+                gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
             }
-        } catch (Exception e){
-            return;
         }
-        return;
-
     }
     private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        try{
-            if(gama.getContents().size()!=_instance._content.size())
-                return;
-            for(int i=0;i<gama.getContents().size();i++){
-                gama.getCells().get(i).setContent(_instance._content.get(i).getContent());
-            }
-        } catch (Exception e){
-            return;
+        for (int i = 0; i < _instance._content.size(); i++) {
+            gama.getCellsNoCopy().get(i).setContent(_instance._content.get(i));
         }
-        return;
     }
 
 }

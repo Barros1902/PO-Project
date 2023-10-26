@@ -20,6 +20,10 @@ public class Coalesce extends RangeFunction {
         }
         return "";
     }
+    @Override
+    public Content getContent() {
+        return new Coalesce(_gama.copy());
+    }
     public String toString(){
         try {
             return evalString() + "=COALESCE(" + _gama.toString() + ")";
