@@ -9,19 +9,28 @@ public class MUL extends BinaryFunction {
 
     @Override
     public int evalInt() throws ArrayCharException {
-        Boolean isArgInt = false;
+        boolean isNULL = false;
         try{
             getValueArg1().evalString();
-            getValueArg2().evalString();
+            isNULL = true;
+        } catch (Exception e){
+            isNULL= false;
+        }
 
-        } catch(Exception e){
-            isArgInt = true;
+        try{
+            if (!isNULL)
+            {
+                getValueArg2().evalString();
+                isNULL = true;
+            }
+        }catch (Exception e){
+            isNULL= false;
         }
 
         try {
             int val1 = getValueArg1().evalInt();
             int val2 = getValueArg2().evalInt();
-            if(isArgInt)
+            if (!isNULL)
                 return val1*val2;
             else
                 throw new ArrayCharException();
