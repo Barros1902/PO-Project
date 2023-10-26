@@ -1,0 +1,19 @@
+*** testsFinal/A-054-054-M-ok.out	2023-10-19 17:08:13.000000000 +0100
+--- testsFinal/A-054-054-M-ok.outhyp	2023-10-26 14:57:27.589068059 +0100
+***************
+*** 25,31 ****
+  0 - Sair
+  Escolha uma opção: 1;1|15
+  1;2|49
+! 1;3|15=1;1
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 25,31 ----
+  0 - Sair
+  Escolha uma opção: 1;1|15
+  1;2|49
+! 1;3|15
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 *** testsBothFinal/A-072-072-M-ok.out	2023-10-19 17:31:47.000000000 +0100
---- testsBothFinal/A-072-072-M-ok.outhyp	2023-10-26 06:26:17.585525586 +0100
-=======
-*** testsBothFinal/A-072-072-M-ok.out	2023-10-26 05:36:05.590868673 +0100
---- testsBothFinal/A-072-072-M-ok.outhyp	2023-10-26 05:37:31.060354371 +0100
->>>>>>> 051c0d76a3be4aa34455706ecf08709d07199bd0
+--- testsBothFinal/A-072-072-M-ok.outhyp	2023-10-26 06:55:00.668756382 +0100
 ***************
 *** 5,12 ****
   4 - Menu de Edição
@@ -122,11 +117,7 @@
   0 - Sair
 ! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 2;1|15
 ! 2;2|43
-<<<<<<< HEAD
 ! 2;3|5=3;2
-=======
-! 2;3|5
->>>>>>> 051c0d76a3be4aa34455706ecf08709d07199bd0
   Menu de Edição
   1 - Visualizar
   2 - Inserir

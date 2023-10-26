@@ -138,4 +138,8 @@ public class Spreadsheet implements Serializable {
     return row + distance < width || column + distance < height;
 
   }
+
+  public Representation getRepresentation(){
+	return _representation;
+  }
 }

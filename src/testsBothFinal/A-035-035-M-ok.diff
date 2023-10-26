@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-*** testsBothFinal/A-035-035-M-ok.out	2023-10-19 17:31:45.000000000 +0100
---- testsBothFinal/A-035-035-M-ok.outhyp	2023-10-26 06:26:15.361615501 +0100
-=======
-*** testsBothFinal/A-035-035-M-ok.out	2023-10-26 05:36:05.587535360 +0100
---- testsBothFinal/A-035-035-M-ok.outhyp	2023-10-26 05:37:29.240365323 +0100
->>>>>>> 051c0d76a3be4aa34455706ecf08709d07199bd0
+*** testsBothFinal/A-035-035-M-ok.out	2023-10-26 06:53:36.490553367 +0100
+--- testsBothFinal/A-035-035-M-ok.outhyp	2023-10-26 06:54:58.316696924 +0100
 ***************
 *** 5,12 ****
   4 - Menu de Edição
@@ -56,6 +51,7 @@
   5 - Menu de Consultas
   0 - Sair
 ! Escolha uma opção: 0
+\ No newline at end of file
 --- 24,34 ----
   6 - Colar
   7 - Mostrar 'cut buffer'

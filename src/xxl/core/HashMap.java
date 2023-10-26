@@ -1,10 +1,14 @@
 package xxl.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import xxl.core.exception.IntFailedException;
+
+import java.util.Collection;
+
 public class HashMap extends Representation {
-
-
+	
     private java.util.HashMap<List<Integer>,Cell> _map;
     public HashMap(int width, int height){
         super(width, height);
@@ -73,5 +77,20 @@ public class HashMap extends Representation {
             changeContentCell(getCell(row,column),new NULL());
         }
     }
+
+	public List<Cell> ShowValues(String compareTo){
+		List<Cell> cells = new ArrayList<Cell>();
+		for(Cell cell : _map.values()){
+			
+			if(compareTo.equals(cell.getContent().toString())){
+
+				cells.add(cell);
+			}
+
+		}
+		return cells;
+
+		
+	}
 
 }

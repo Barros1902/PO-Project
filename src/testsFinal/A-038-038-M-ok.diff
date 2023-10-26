@@ -1,0 +1,36 @@
+*** testsFinal/A-038-038-M-ok.out	2023-10-19 17:15:15.000000000 +0100
+--- testsFinal/A-038-038-M-ok.outhyp	2023-10-26 14:57:26.373050167 +0100
+***************
+*** 14,20 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 2;3|#VALUE=AVERAGE(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 14,20 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 2;3|18=AVERAGE(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 36,42 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 4;1|#VALUE=PRODUCT(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 36,42 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 4;1|0=PRODUCT(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir

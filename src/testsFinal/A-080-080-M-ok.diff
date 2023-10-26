@@ -1,0 +1,20 @@
+*** testsFinal/A-080-080-M-ok.out	2023-10-19 17:10:34.000000000 +0100
+--- testsFinal/A-080-080-M-ok.outhyp	2023-10-26 14:57:29.313093425 +0100
+***************
+*** 23,29 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 23,30 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Colar: Operação inválida: A gama '53;1' é inválida.
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
