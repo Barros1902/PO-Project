@@ -1,0 +1,82 @@
+*** testsBothFinal/A-076-076-M-ok.out	2023-10-19 17:31:47.000000000 +0100
+--- testsBothFinal/A-076-076-M-ok.outhyp	2023-10-26 06:26:18.045507083 +0100
+***************
+*** 2,18 ****
+  1 - Novo
+  2 - Abrir
+  0 - Sair
+! Escolha uma opção: 2
+! Ficheiro a abrir: saved27
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 4
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 2,15 ----
+  1 - Novo
+  2 - Abrir
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 21,29 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 1;1
+! 1;1|5
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 18,24 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 1;1|5
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 33,44 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 0
+--- 28,38 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 
+\ No newline at end of file

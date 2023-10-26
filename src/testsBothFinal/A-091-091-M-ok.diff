@@ -1,0 +1,53 @@
+*** testsBothFinal/A-091-091-M-ok.out	2023-10-19 17:31:47.000000000 +0100
+--- testsBothFinal/A-091-091-M-ok.outhyp	2023-10-26 06:26:18.841475198 +0100
+***************
+*** 5,27 ****
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 5
+! Menu de Consultas
+  1 - Procurar valores
+  2 - Procurar funções
+  0 - Sair
+! Escolha uma opção: 2
+! Função a procurar: 15
+  Menu de Consultas
+  1 - Procurar valores
+  2 - Procurar funções
+  0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 0
+--- 5,28 ----
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Consultas
+! 1 - Procurar valores
+! 2 - Procurar funções
+! 0 - Sair
+! Escolha uma opção: Menu de Consultas
+  1 - Procurar valores
+  2 - Procurar funções
+  0 - Sair
+! Escolha uma opção: Opção inválida!
+  Menu de Consultas
+  1 - Procurar valores
+  2 - Procurar funções
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 
+\ No newline at end of file
