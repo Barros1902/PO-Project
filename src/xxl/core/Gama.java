@@ -21,8 +21,8 @@ public class Gama implements Serializable{
         EndRow = endRow;
         EndColumn = endColumn;
         _spreadsheet = spreadsheet;
-
     }
+
     public boolean isRow(){
         return BeginRow==EndRow;
     }
