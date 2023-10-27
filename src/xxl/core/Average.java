@@ -3,6 +3,9 @@ package xxl.core;
 import xxl.core.exception.ArrayCharException;
 
 public class Average extends RangeFunction {
+
+	String _name = "AVERAGE";
+
     Average(Gama gama) {
         super(gama);
     }
@@ -38,6 +41,12 @@ public class Average extends RangeFunction {
 
 		contentvisitor.visitAverage(this);
 		
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 }
 

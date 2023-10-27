@@ -3,6 +3,8 @@ package xxl.core;
 import xxl.core.exception.ArrayCharException;
 
 public class Product extends RangeFunction {
+
+	String _name = "PRODUCT";
     Product(Gama gama) {
         super(gama);
     }
@@ -40,6 +42,12 @@ public class Product extends RangeFunction {
 
 		contentvisitor.visitProduct(this);
 		
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 }
 

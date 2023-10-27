@@ -14,7 +14,10 @@ public abstract class BinaryFunction extends Function {
         _arg1 = arg1;
         _arg2 = arg2;
     }
+	public void accept(ContentVisitor contentvisitor){
 
+		contentvisitor.visitBinaryFunction(this);
+	}
 
 
     public Content getValueArg1(){

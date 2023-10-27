@@ -6,6 +6,9 @@ import xxl.core.exception.ArrayCharException;
 import xxl.core.exception.FunctionException;
 
 public class DIV extends BinaryFunction {
+
+	String _name = "DIV";
+
     public DIV(Content arg1, Content arg2){
         super(arg1,arg2);
     }
@@ -89,5 +92,11 @@ public class DIV extends BinaryFunction {
 
 		contentvisitor.visitDIV(this);
 		
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 }

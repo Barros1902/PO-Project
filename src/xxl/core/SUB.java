@@ -4,6 +4,9 @@ package xxl.core;
 import xxl.core.exception.ArrayCharException;
 
 public class SUB extends BinaryFunction {
+
+	String _name = "SUB";
+
     public SUB(Content arg1, Content arg2){
         super(arg1,arg2);
     }
@@ -86,5 +89,11 @@ public class SUB extends BinaryFunction {
 
 		contentvisitor.visitSUB(this);
 		
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 }

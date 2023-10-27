@@ -3,7 +3,6 @@ package xxl.core;
 import xxl.app.exception.InvalidCellRangeException;
 import xxl.core.exception.OutOfBoundsException;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +55,9 @@ public class CutBuffer { // Singleton
 
     }
     private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+		if (gama.getCells().size() != _instance._content.size())
+			return;
+
         for (int i = 0; i < _instance._content.size(); i++) {
             int row = gama.getCells().get(i).getRow();
             int column = gama.getCells().get(i).getColumn();

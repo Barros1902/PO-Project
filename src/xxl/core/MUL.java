@@ -3,6 +3,8 @@ package xxl.core;
 import xxl.core.exception.ArrayCharException;
 
 public class MUL extends BinaryFunction {
+
+	String _name = "MUL";
     public MUL(Content arg1, Content arg2){
         super(arg1,arg2);
     }
@@ -87,5 +89,11 @@ public class MUL extends BinaryFunction {
 
 		contentvisitor.visitMUL(this);
 		
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 }

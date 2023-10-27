@@ -1,6 +1,11 @@
 package xxl.app.search;
 
+import java.util.List;
+
 import pt.tecnico.uilib.menus.Command;
+import xxl.core.Cell;
+import xxl.core.HashMap;
+import xxl.core.SortCells;
 import xxl.core.Spreadsheet;
 // FIXME import classes
 
@@ -11,11 +16,22 @@ class DoShowFunctions extends Command<Spreadsheet> {
 
   DoShowFunctions(Spreadsheet receiver) {
     super(Label.SEARCH_FUNCTIONS, receiver);
-    // FIXME add fields
-  }
+	addStringField("Tocompare", Message.searchFunction());
+
+
+}
 
   @Override
   protected final void execute() {
-    // FIXME implement command
+
+	String Tocompare = stringField("Tocompare");
+	List<Cell> cells = ((HashMap)_receiver.getRepresentation()).ShowFunctions(Tocompare);
+	cells.sort(new SortCells());
+	for (Cell celula : cells){
+		_display.addLine(celula.toString());		
+	}
+	_display.display();
+
+
   }
 }

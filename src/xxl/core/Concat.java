@@ -4,6 +4,8 @@ import xxl.core.exception.IntFailedException;
 
 public class Concat extends RangeFunction {
 
+	String _name = "CONCAT";
+
     Concat(Gama gama) {
         super(gama);
     }
@@ -34,6 +36,12 @@ public class Concat extends RangeFunction {
 
 		contentvisitor.visitConcat(this);
 		
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 }
 

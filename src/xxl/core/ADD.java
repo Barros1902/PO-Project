@@ -6,6 +6,8 @@ import xxl.core.exception.ArrayCharException;
 
 public class ADD extends BinaryFunction {
 
+	String _name = "ADD";
+
     public ADD(Content arg1, Content arg2){
         super(arg1,arg2);
     }
@@ -89,6 +91,12 @@ public class ADD extends BinaryFunction {
 	public void accept(ContentVisitor contentvisitor){
 
 		contentvisitor.visitADD(this);
-		
+
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 }

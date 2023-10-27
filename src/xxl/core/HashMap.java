@@ -91,5 +91,17 @@ public class HashMap extends Representation {
 
 		
 	}
-
+	public List<Cell> ShowFunctions(String compareTo){
+		List<Cell> cells = new ArrayList<Cell>();
+		FunctionSearcher searcher = new FunctionSearcher(compareTo); 
+			for(Cell cell : _map.values()){
+				
+				cell.getContent().accept(searcher);
+				if(searcher.getMatch()){
+					cells.add(cell);
+					searcher.setMacth(false);
+				}
+			}
+		return cells;
+	}
 }

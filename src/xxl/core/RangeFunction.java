@@ -81,5 +81,11 @@ public abstract class RangeFunction extends Function{
         }
 
         return result;
-    }
+	}
+	
+		public void accept(ContentVisitor contentvisitor){
+
+			contentvisitor.visitRangeFunction(this);
+		}
+    
 }

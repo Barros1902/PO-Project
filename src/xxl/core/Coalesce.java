@@ -3,6 +3,8 @@ package xxl.core;
 import xxl.core.exception.IntFailedException;
 
 public class Coalesce extends RangeFunction {
+
+	String _name = "COALESCE";
     Coalesce(Gama gama) {
         super(gama);
     }
@@ -39,6 +41,12 @@ public class Coalesce extends RangeFunction {
 
 		contentvisitor.visitCoalesce(this);
 		
+	}
+
+	@Override
+	public String getName(){
+
+		return _name;
 	}
 
 }
