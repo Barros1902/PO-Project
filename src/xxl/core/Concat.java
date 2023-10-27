@@ -28,5 +28,12 @@ public class Concat extends RangeFunction {
             return "#VALUE" + "=CONCAT(" + _gama.toString() + ")";
         }
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitConcat(this);
+		
+	}
 }
 

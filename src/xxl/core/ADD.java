@@ -84,4 +84,11 @@ public class ADD extends BinaryFunction {
             return "#VALUE"+"=ADD("+Coords1+","+Coords2+")";
         }
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitADD(this);
+		
+	}
 }

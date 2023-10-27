@@ -32,4 +32,11 @@ public class Num extends Literals{
     public String toString(){
         return Integer.toString(_value);
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitNum(this);
+		
+	}
 }

@@ -32,5 +32,12 @@ public class Average extends RangeFunction {
             return "#VALUE" + "=AVERAGE(" + _gama.toString() + ")";
         }
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitAverage(this);
+		
+	}
 }
 

@@ -27,4 +27,11 @@ public class NULL extends Literals{
     public String toString(){
         return "";
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitNull(this);
+		
+	}
 }

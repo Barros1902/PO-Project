@@ -81,4 +81,11 @@ public class MUL extends BinaryFunction {
             return "#VALUE"+"=MUL("+Coords1+","+Coords2+")";
         }
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitMUL(this);
+		
+	}
 }

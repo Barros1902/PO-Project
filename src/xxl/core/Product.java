@@ -34,5 +34,12 @@ public class Product extends RangeFunction {
             return "#VALUE" + "=PRODUCT(" + _gama.toString() + ")";
         }
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitProduct(this);
+		
+	}
 }
 
