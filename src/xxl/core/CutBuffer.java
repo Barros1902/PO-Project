@@ -34,32 +34,28 @@ public class CutBuffer { // Singleton
 
     //
     private static void SingleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        try{
-            if(gama.isRow()){
-
-                for (int i = 0; i < _instance._content.size(); i++) {
-                    gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
-                    if (gama.getSpreadsheet().getRepresentation().getWidth() == gama.getBeginColumn()+i)
-                        break;
-                }
-            } else {
-
-                for (int i = 0; i < _instance._content.size(); i++) {
-                    gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
-                    if (gama.getSpreadsheet().getRepresentation().getHeight() == gama.getBeginRow()+i)
-                        break;
-                }
+        if(gama.isRow()){
+            for (int i = 0; i < _instance._content.size(); i++) {
+                gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
+                if (gama.getSpreadsheet().getRepresentation().getWidth() == gama.getBeginColumn()+i)
+                    break;
             }
-        } catch (Exception e){
-            return;
-        }
+        } else {
 
+            for (int i = 0; i < _instance._content.size(); i++) {
+                gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
+                if (gama.getSpreadsheet().getRepresentation().getHeight() == gama.getBeginRow()+i)
+                    break;
+            }
+        }
     }
     private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        for (int i = 0; i < _instance._content.size(); i++) {
-            int row = gama.getCells().get(i).getRow();
-            int column = gama.getCells().get(i).getColumn();
-            SingleCell(new Gama(row,column,row,column,gama.getSpreadsheet()));
+        if (gama.getCells().size() !=_instance._content.size()) {
+            return;
+        }
+        List<Cell> cells = gama.getCellsNoCopy();
+        for (int i = 0; i < cells.size(); i++) {
+            cells.get(i).setContent(_instance._content.get(i).getContent());
         }
     }
 

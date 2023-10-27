@@ -6,6 +6,7 @@ import xxl.core.exception.ArrayCharException;
 
 public class ADD extends BinaryFunction {
 
+
     public ADD(Content arg1, Content arg2){
         super(arg1,arg2);
     }
@@ -33,8 +34,9 @@ public class ADD extends BinaryFunction {
         try {
             int val1 = getValueArg1().evalInt();
             int val2 = getValueArg2().evalInt();
-            if (!isNULL)
+            if (!isNULL){
                 return val1+val2;
+            }
             else
                 throw new ArrayCharException();
         } catch(Exception e){
@@ -44,8 +46,8 @@ public class ADD extends BinaryFunction {
 
 
     @Override
-    protected Literals value() {
-        return null;
+    protected Literals value(){
+        return _value;
     }
     @Override
     public Content getContent() {

@@ -7,7 +7,7 @@ import xxl.core.exception.IntFailedException;
 import javax.swing.text.AbstractDocument;
 
 public abstract class BinaryFunction extends Function {
-    
+    Literals _value;
     private Content _arg1;
     private Content _arg2;
     public BinaryFunction(Content arg1, Content arg2){

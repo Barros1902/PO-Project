@@ -3,12 +3,16 @@ package xxl.core;
 import xxl.core.exception.ArrayCharException;
 import xxl.core.exception.IntFailedException;
 
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cell implements Serializable {
 	private static final long serialVersionUID = 202310121845L;
     private Point _point;
     private Content _content;
+
     public Cell(int row, int column, Content content){
         _point = new Point(row,column);
         _content = content;
