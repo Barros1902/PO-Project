@@ -1,0 +1,19 @@
+*** testsFinal/A-080-080-M-ok.out	2023-10-26 05:36:05.597535300 +0100
+--- testsFinal/A-080-080-M-ok.outhyp	2023-10-27 09:38:35.258841954 +0100
+***************
+*** 33,39 ****
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+  Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 53;1|49
+! 54;1|43
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 33,39 ----
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+  Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 53;1|49
+! 54;1|
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir

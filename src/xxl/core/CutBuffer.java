@@ -3,36 +3,68 @@ package xxl.core;
 import xxl.app.exception.InvalidCellRangeException;
 import xxl.core.exception.OutOfBoundsException;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-public class CutBuffer { //Singleton
+
+public class CutBuffer { // Singleton
     private static CutBuffer _instance;
     private List<Content> _content;
     private boolean _isRow;
 
-    private CutBuffer(List<Content> content){
+    private CutBuffer(List<Content> content) {
         _content = content;
     }
+
     public static CutBuffer copy(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        if(_instance == null)
+        if (_instance == null)
             _instance = new CutBuffer(gama.getContents());
-        else{
+        else {
             _instance._content = gama.getContents();
         }
-		_instance._isRow = gama.isRow();
+        _instance._isRow = gama.isRow();
         return _instance;
     }
+
     public static CutBuffer cut(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        
-        if(_instance == null)
-            _instance = new CutBuffer(gama.getContents());
-        else{
-            _instance._content = gama.getContents();
-        }
-		_instance._isRow = gama.isRow();
+        copy(gama);
         gama.clear();
         return _instance;
     }
+
+    //
+    private static void SingleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+        try{
+            if(gama.isRow()){
+
+                for (int i = 0; i < _instance._content.size(); i++) {
+                    gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
+                    if (gama.getSpreadsheet().getRepresentation().getWidth() == gama.getBeginColumn()+i)
+                        break;
+                }
+            } else {
+
+                for (int i = 0; i < _instance._content.size(); i++) {
+                    gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
+                    if (gama.getSpreadsheet().getRepresentation().getHeight() == gama.getBeginRow()+i)
+                        break;
+                }
+            }
+        } catch (Exception e){
+            return;
+        }
+
+    }
+    private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
+        for (int i = 0; i < _instance._content.size(); i++) {
+            int row = gama.getCells().get(i).getRow();
+            int column = gama.getCells().get(i).getColumn();
+            SingleCell(new Gama(row,column,row,column,gama.getSpreadsheet()));
+        }
+    }
+
+    //
+
     public static void paste(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
         if(_instance == null)
             return;
@@ -43,40 +75,18 @@ public class CutBuffer { //Singleton
             MultipleCell(gama);
         }
     }
-    private static void SingleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        try{
-            if (!gama.getSpreadsheet().enoughSpace(gama.getCellsNoCopy().get(0), _instance._content.size()))
-                return;
-            if(gama.isRow()){
-                for (int i = 0; i < _instance._content.size(); i++) {
-                    gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
-                }
-            } else {
-                for (int i = 0; i < _instance._content.size(); i++) {
-                    gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
-                }
-            }
-        } catch (Exception e){
-            return;
-        }
 
-    }
-    private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        for (int i = 0; i < _instance._content.size(); i++) {
-            SingleCell(new Gama(gama.getCellsNoCopy().get(i).getRow(),gama.getCellsNoCopy().get(i).getColumn(),gama.getCellsNoCopy().get(i).getRow(),gama.getCellsNoCopy().get(i).getColumn(),gama.getSpreadsheet()));
-        }
-    }
-    public static List<String> showCutBuffer(){
+    public static List<String> showCutBuffer() {
         List<String> showList = new ArrayList<>();
         StringBuilder temp = new StringBuilder();
         int i = 1;
-        if (_instance._isRow){
+        if (_instance._isRow) {
             for (Content content : _instance._content) {
                 temp.append("1;").append(String.valueOf(i)).append("|");
                 temp.append(content.toString());
                 showList.add(String.valueOf(temp));
                 i++;
-                temp=new StringBuilder();
+                temp = new StringBuilder();
             }
         } else {
             for (Content content : _instance._content) {
@@ -84,7 +94,7 @@ public class CutBuffer { //Singleton
                 temp.append(content.toString());
                 showList.add(String.valueOf(temp));
                 i++;
-                temp=new StringBuilder();
+                temp = new StringBuilder();
             }
         }
         return showList;

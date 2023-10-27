@@ -38,7 +38,7 @@ public class Reference extends Content{
         return _cell.getContent().toString();
     }
     public Content getContent(){
-        return _cell.getContent();
+        return this;
     }
 
     protected String valueString() {
