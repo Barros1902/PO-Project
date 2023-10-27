@@ -6,15 +6,38 @@ import xxl.core.exception.IntFailedException;
 import java.util.List;
 
 public abstract class RangeFunction extends Function{
-    Gama _gama;
+    Literals _value;
+
+    private Gama _gama;
     RangeFunction(Gama gama){
         _gama = gama;
+        Observing();
+        update();
+    }
+    public Gama getGama(){
+        return _gama;
+    }
+
+    public Literals getValue(){
+        return _value;
+    }
+    @Override
+    public void Observing() {
+        try {
+            List<Cell> cells = _gama.getCellsNoCopy();
+            for(Cell cell : cells){
+                cell.addObserver(this);
+            }
+        } catch (Exception e) {
+            //Do nothing
+        }
     }
 
     @Override
-    protected Literals value() {
-        return null;
+    public void update() {
+        _value = value();
     }
+
 
     @Override
     public int evalInt() throws ArrayCharException {

@@ -12,14 +12,19 @@ public class Cell implements Serializable {
 	private static final long serialVersionUID = 202310121845L;
     private Point _point;
     private Content _content;
+    private List<Observer> _observers = new ArrayList<Observer>();
 
     public Cell(int row, int column, Content content){
         _point = new Point(row,column);
         _content = content;
+        setmyCell();
     }
     public Cell(Cell cell){
         _point = cell._point.getPoint();
         _content = cell.getContent();
+    }
+    public void setmyCell(){
+        _content.setCell(this);
     }
     public Cell getCell(){
         return new Cell(this);
@@ -27,6 +32,15 @@ public class Cell implements Serializable {
 
     public void setContent(Content content){
         _content = content;
+        notifyObservers();
+    }
+    public void addObserver(Observer observer){
+        _observers.add(observer);
+    }
+     void notifyObservers(){
+        for(Observer observer : _observers){
+            observer.update();
+        }
     }
     public Content getContent(){
         return _content.getContent();

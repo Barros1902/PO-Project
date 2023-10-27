@@ -3,10 +3,12 @@ package xxl.core;
 import xxl.app.exception.InvalidCellRangeException;
 import xxl.core.exception.OutOfBoundsException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.RecursiveTask;
 
-public class CutBuffer { // Singleton
+public class CutBuffer implements Serializable { // Singleton
     private static CutBuffer _instance;
     private List<Content> _content;
     private boolean _isRow;
@@ -22,6 +24,7 @@ public class CutBuffer { // Singleton
             _instance._content = gama.getContents();
         }
         _instance._isRow = gama.isRow();
+        gama.getSpreadsheet().setGamaCutBuffer(gama);
         return _instance;
     }
 
@@ -33,20 +36,25 @@ public class CutBuffer { // Singleton
 
     //
     private static void SingleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
-        if(gama.isRow()){
-            for (int i = 0; i < _instance._content.size(); i++) {
-                gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
-                if (gama.getSpreadsheet().getRepresentation().getWidth() == gama.getBeginColumn()+i)
-                    break;
-            }
-        } else {
+        try{
+            if(_instance._isRow){
+                for (int i = 0; i < _instance._content.size(); i++) {
+                    gama.getSpreadsheet().getCell(gama.getBeginRow(),gama.getBeginColumn()+i).setContent(_instance._content.get(i));
+                    if (gama.getSpreadsheet().getRepresentation().getWidth()+1 == gama.getBeginColumn()+i)
+                        return;
+                }
+            } else {
 
-            for (int i = 0; i < _instance._content.size(); i++) {
-                gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
-                if (gama.getSpreadsheet().getRepresentation().getHeight() == gama.getBeginRow()+i)
-                    break;
+                for (int i = 0; i < _instance._content.size(); i++) {
+                    gama.getSpreadsheet().getCell(gama.getBeginRow()+i,gama.getBeginColumn()).setContent(_instance._content.get(i));
+                    if (gama.getSpreadsheet().getRepresentation().getHeight()+1 == gama.getBeginRow()+i)
+                        return;
+                }
             }
+        } catch (Exception e){
+            return;
         }
+
     }
     private static void MultipleCell(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
         if (gama.getCells().size() !=_instance._content.size()) {

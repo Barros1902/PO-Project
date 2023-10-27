@@ -19,15 +19,22 @@ public class Concat extends RangeFunction {
         }
         return concat.toString();
     }
+    public Literals value(){
+        try {
+            return new CharArray(evalString());
+        } catch (Exception e) {
+            return null;
+        }
+    }
     @Override
     public Content getContent() {
-        return new Concat(_gama.copy());
+        return new Concat(getGama().copy());
     }
     public String toString(){
         try {
-            return evalString() + "=CONCAT(" + _gama.toString() + ")";
+            return getValue().toString() + "=CONCAT(" + getGama().toString() + ")";
         } catch (Exception e) {
-            return "#VALUE" + "=CONCAT(" + _gama.toString() + ")";
+            return "#VALUE" + "=CONCAT(" + getGama().toString() + ")";
         }
     }
 

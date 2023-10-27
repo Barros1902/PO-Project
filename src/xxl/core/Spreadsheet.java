@@ -18,13 +18,24 @@ public class Spreadsheet implements Serializable {
   private String _name;
   private User _user;
   private Boolean _changed = false;
+  private Gama gamaCutBuffer;
   private final Representation _representation;
 
   public Spreadsheet(int width, int height){
     _representation = new HashMap(width, height);
+    if (gamaCutBuffer != null) {
+      try{
+        CutBuffer.copy(gamaCutBuffer);
+      } catch (Exception e){
+
+      }
+    }
   }
   public void setActiveUser(User user){
     _user=user;
+  }
+  public void setGamaCutBuffer(Gama gama){
+    gamaCutBuffer=gama;
   }
   public void SetName(String name){
     _name=name;

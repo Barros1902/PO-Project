@@ -4,23 +4,35 @@ package xxl.core;
 import xxl.core.exception.ArrayCharException;
 import xxl.core.exception.IntFailedException;
 
+import java.util.List;
+
 public class Reference extends Content{
+    private Literals _value;
     private Cell _cell;
     public Reference(Cell cell){
         _cell = cell;
+        Observing();
     }
 
-    public Cell get_cell() {
-        return _cell;
+
+    @Override
+    public void update() {
+        if (get_cell() != null)
+            get_cell().notifyObservers();
     }
+    @Override
+    public void Observing(){
+        _cell.addObserver(this);
+    }
+
     /**
      * Coords toString
      * */
     @Override
     public String toString() {
         return getValue()+"="+ _cell.getPoint();
-
     }
+
     @Override
     public String CoordsString() {
         return _cell.getPoint();

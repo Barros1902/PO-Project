@@ -2,7 +2,7 @@ package xxl.core;
 
 public class Num extends Literals{
     private final int _value;
-    public Num(int value){
+    public Num(int value) {
         _value = value;
     }
 

@@ -1,6 +1,7 @@
 package xxl.core;
 
 public class NULL extends Literals{
+
     @Override
     public String evalString(){
         return null;

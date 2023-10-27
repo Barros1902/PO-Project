@@ -9,7 +9,13 @@ public class Average extends RangeFunction {
     Average(Gama gama) {
         super(gama);
     }
-
+    public Literals value(){
+        try {
+            return new Num(evalInt());
+        } catch (Exception e) {
+            return null;
+        }
+    }
     @Override
     public int evalInt() throws ArrayCharException{
         if (verifyInputInt()) {
@@ -25,14 +31,14 @@ public class Average extends RangeFunction {
         return sum/getCells().size();
     }
     public Content getContent() {
-        return new Average(_gama.copy());
+        return new Average(getGama().copy());
     }
     @Override
     public String toString() {
         try {
-            return String.valueOf(evalInt()) + "=AVERAGE(" + _gama.toString() + ")";
+            return getValue().toString() + "=AVERAGE(" + getGama().toString() + ")";
         } catch (Exception e) {
-            return "#VALUE" + "=AVERAGE(" + _gama.toString() + ")";
+            return "#VALUE" + "=AVERAGE(" + getGama().toString() + ")";
         }
     }
 

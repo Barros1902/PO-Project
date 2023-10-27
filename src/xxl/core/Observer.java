@@ -1,5 +1,7 @@
 package xxl.core;
 
 public interface Observer {
-    public void update(Content contentUpdated);
+    public void update();
+
+    public void detach();
 }

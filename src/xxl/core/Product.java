@@ -8,6 +8,7 @@ public class Product extends RangeFunction {
     Product(Gama gama) {
         super(gama);
     }
+    private Literals value;
     @Override
     public int evalInt() throws ArrayCharException {
         if (verifyInputInt()) {
@@ -25,15 +26,23 @@ public class Product extends RangeFunction {
     }
     @Override
     public Content getContent() {
-        return new Product(_gama.copy());
+        return new Product(getGama().copy());
+    }
+
+    public Literals value(){
+        try {
+            return new Num(evalInt());
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public String toString() {
         try {
-            return String.valueOf(evalInt()) + "=PRODUCT(" + _gama.toString() + ")";
+            return getValue().toString() + "=PRODUCT(" + getGama().toString() + ")";
         } catch (Exception e) {
-            return "#VALUE" + "=PRODUCT(" + _gama.toString() + ")";
+            return "#VALUE" + "=PRODUCT(" + getGama().toString() + ")";
         }
     }
 

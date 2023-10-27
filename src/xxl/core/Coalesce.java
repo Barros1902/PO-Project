@@ -26,13 +26,21 @@ public class Coalesce extends RangeFunction {
     }
     @Override
     public Content getContent() {
-        return new Coalesce(_gama.copy());
+        return new Coalesce(getGama().copy());
     }
     public String toString(){
         try {
-            return evalString() + "=COALESCE(" + _gama.toString() + ")";
+            return getValue().toString() + "=COALESCE(" + getGama().toString() + ")";
         } catch (Exception e) {
-            return "#VALUE" + "=COALESCE(" + _gama.toString() + ")";
+            return "#VALUE" + "=COALESCE(" + getGama().toString() + ")";
+        }
+    }
+
+    public Literals value(){
+        try {
+            return new CharArray(evalString());
+        } catch (Exception e) {
+            return null;
         }
     }
 
