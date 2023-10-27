@@ -33,4 +33,11 @@ public class CharArray extends Literals{
     public String evalString(){
         return _value;
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitCharArray(this);
+		
+	}
 }

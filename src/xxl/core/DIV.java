@@ -83,4 +83,11 @@ public class DIV extends BinaryFunction {
             return "#VALUE"+"=DIV("+Coords1+","+Coords2+")";
         }
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitDIV(this);
+		
+	}
 }

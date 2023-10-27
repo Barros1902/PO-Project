@@ -80,4 +80,11 @@ public class SUB extends BinaryFunction {
             return "#VALUE"+"=SUB("+Coords1+","+Coords2+")";
         }
     }
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitSUB(this);
+		
+	}
 }

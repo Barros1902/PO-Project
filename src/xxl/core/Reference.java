@@ -63,4 +63,11 @@ public class Reference extends Content{
     public String evalString() throws IntFailedException {
         return _cell.evalString();
     };
+
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitReference(this);
+		
+	}
 }

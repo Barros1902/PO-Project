@@ -34,5 +34,12 @@ public class Coalesce extends RangeFunction {
         }
     }
 
+	@Override
+	public void accept(ContentVisitor contentvisitor){
+
+		contentvisitor.visitCoalesce(this);
+		
+	}
+
 }
 

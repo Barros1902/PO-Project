@@ -18,4 +18,6 @@ public abstract class Content implements Serializable{
     public String CoordsString() throws CoordsException {
         throw new CoordsException();
     }
+
+	public abstract void accept(ContentVisitor contentvisitor); 
 }
