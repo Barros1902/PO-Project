@@ -81,9 +81,8 @@ public class HashMap extends Representation {
 	public List<Cell> ShowValues(String compareTo){
 		List<Cell> cells = new ArrayList<Cell>();
 		for(Cell cell : _map.values()){
-			
-			if(compareTo.equals(cell.getContent().toString())){
-
+			String[] conteudo = cell.getContent().toString().split("=");
+			if(compareTo.equals(conteudo[0])){
 				cells.add(cell);
 			}
 
