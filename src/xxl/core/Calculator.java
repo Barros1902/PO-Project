@@ -71,7 +71,6 @@ public class Calculator {
     // FIXME implement serialization method and throw exceptions
 	_spreadsheet.setChanged(false);
 	ObjectOutputStream obOut = null;
-	CutBuffer.delete();
 	try {
 
 	obOut = new ObjectOutputStream(new FileOutputStream(filename));
