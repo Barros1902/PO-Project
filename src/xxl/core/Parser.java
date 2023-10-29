@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 import xxl.core.exception.OutOfBoundsException;
 import xxl.core.exception.UnrecognizedEntryException;
+import xxl.app.exception.UnknownFunctionException;
 
 
 public class Parser implements Serializable{
@@ -145,7 +146,7 @@ public class Parser implements Serializable{
       case "COALESCE" -> new Coalesce(range);
       case "PRODUCT" -> new Product(range);
       case "AVERAGE" -> new Average(range);
-      default -> throw new UnrecognizedEntryException(rangeDescription);
+      default -> throw new UnknownFunctionException(functionName);
     };
   }
 

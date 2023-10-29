@@ -6,6 +6,7 @@ import pt.tecnico.uilib.menus.Command;
 import xxl.core.Cell;
 import xxl.core.HashMap;
 import xxl.core.SortCells;
+import xxl.core.SortFunctions;
 import xxl.core.Spreadsheet;
 // FIXME import classes
 
@@ -26,7 +27,7 @@ class DoShowFunctions extends Command<Spreadsheet> {
 
 	String Tocompare = stringField("Tocompare");
 	List<Cell> cells = ((HashMap)_receiver.getRepresentation()).ShowFunctions(Tocompare);
-	cells.sort(new SortCells());
+	cells.sort(new SortFunctions());
 	for (Cell celula : cells){
 		_display.addLine(celula.toString());		
 	}

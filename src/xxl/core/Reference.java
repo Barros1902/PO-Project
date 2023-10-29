@@ -86,4 +86,11 @@ public class Reference extends Content{
 		contentvisitor.visitReference(this);
 		
 	}
+
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getName'");
+	}
 }

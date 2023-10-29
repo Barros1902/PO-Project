@@ -3,6 +3,7 @@ package xxl.core;
 import java.io.*;
 import java.util.ArrayList;
 
+import xxl.app.exception.UnknownFunctionException;
 import xxl.core.exception.*;
 
 // FIXME import classes
@@ -70,6 +71,7 @@ public class Calculator {
     // FIXME implement serialization method and throw exceptions
 	_spreadsheet.setChanged(false);
 	ObjectOutputStream obOut = null;
+	CutBuffer.delete();
 	try {
 
 	obOut = new ObjectOutputStream(new FileOutputStream(filename));
@@ -114,6 +116,7 @@ public class Calculator {
    *
    * @param filename name of the text input file
    * @throws ImportFileException
+ * @throws UnknownFunctionException
    */
 
   public void importFile(String filename) throws UnrecognizedEntryException, IOException, ImportFileException, OutOfBoundsException {

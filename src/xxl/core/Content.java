@@ -10,7 +10,7 @@ public abstract class Content implements Serializable,Observer{
     private Cell _cell;
 
 	private static final long serialVersionUID = 202310121846L;
-
+	public abstract String getName();
     public Cell get_cell() {
         return _cell;
     }

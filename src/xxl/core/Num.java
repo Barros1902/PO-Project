@@ -39,4 +39,10 @@ public class Num extends Literals{
 		contentvisitor.visitNum(this);
 		
 	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getName'");
+	}
 }

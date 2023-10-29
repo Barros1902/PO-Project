@@ -35,4 +35,9 @@ public class NULL extends Literals{
 		contentvisitor.visitNull(this);
 		
 	}
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getName'");
+	}
 }

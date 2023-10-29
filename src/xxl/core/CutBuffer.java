@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.concurrent.RecursiveTask;
 
 public class CutBuffer implements Serializable { // Singleton
+	private static final long serialVersionUID = 202310291023L;
     private static CutBuffer _instance;
     private List<Content> _content;
     private boolean _isRow;

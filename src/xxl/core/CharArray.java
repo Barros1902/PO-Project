@@ -40,4 +40,10 @@ public class CharArray extends Literals{
 		contentvisitor.visitCharArray(this);
 		
 	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getName'");
+	}
 }
