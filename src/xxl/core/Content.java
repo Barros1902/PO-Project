@@ -29,6 +29,7 @@ public abstract class Content implements Serializable,Observer{
 
     }
 
+
     protected abstract Literals value();
     public abstract int evalInt() throws ArrayCharException;
     public abstract String evalString() throws IntFailedException;
