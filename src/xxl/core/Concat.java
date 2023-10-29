@@ -2,6 +2,8 @@ package xxl.core;
 
 import xxl.core.exception.IntFailedException;
 
+import java.util.Objects;
+
 public class Concat extends RangeFunction {
 
 	String _name = "CONCAT";
@@ -15,7 +17,12 @@ public class Concat extends RangeFunction {
         StringBuilder concat = new StringBuilder();
         concat.append("'");
         for (Cell cell : getCells()) {
-            concat.append(cell.evalString().substring(1));
+            try{
+                concat.append(cell.evalString().substring(1));
+            } catch (Exception e){
+                continue;
+            }
+
         }
         return concat.toString();
     }
@@ -31,6 +38,7 @@ public class Concat extends RangeFunction {
         return new Concat(getGama().copy());
     }
     public String toString(){
+
         try {
             return getValue().toString() + "=CONCAT(" + getGama().toString() + ")";
         } catch (Exception e) {

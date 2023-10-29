@@ -1,0 +1,93 @@
+<<<<<<< Updated upstream
+*** testsBothFinal/A-041-041-M-ok.out	2023-10-19 17:31:45.000000000 +0100
+--- testsBothFinal/A-041-041-M-ok.outhyp	2023-10-26 06:54:58.872710992 +0100
+=======
+*** testsBothFinal/A-041-041-M-ok.out	2023-10-26 05:36:05.590868673 +0100
+--- testsBothFinal/A-041-041-M-ok.outhyp	2023-10-26 06:42:03.829069112 +0100
+>>>>>>> Stashed changes
+***************
+*** 5,12 ****
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 4
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 5,11 ----
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 15,74 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 2
+! Especifique a gama (startline;startcol:endline;endcol): 2;1
+! Insira o conteúdo da célula: =1;1
+! Menu de Edição
+! 1 - Visualizar
+! 2 - Inserir
+! 3 - Copiar
+! 4 - Apagar
+! 5 - Cortar
+! 6 - Colar
+! 7 - Mostrar 'cut buffer'
+! 0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 1;1
+! 1;1|5
+! Menu de Edição
+! 1 - Visualizar
+! 2 - Inserir
+! 3 - Copiar
+! 4 - Apagar
+! 5 - Cortar
+! 6 - Colar
+! 7 - Mostrar 'cut buffer'
+! 0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 1;2
+! 1;2|49
+! Menu de Edição
+! 1 - Visualizar
+! 2 - Inserir
+! 3 - Copiar
+! 4 - Apagar
+! 5 - Cortar
+! 6 - Colar
+! 7 - Mostrar 'cut buffer'
+! 0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 2;1
+! 2;1|5=1;1
+! Menu de Edição
+! 1 - Visualizar
+! 2 - Inserir
+! 3 - Copiar
+! 4 - Apagar
+! 5 - Cortar
+! 6 - Colar
+! 7 - Mostrar 'cut buffer'
+! 0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+! 1 - Novo
+! 2 - Abrir
+! 3 - Guardar
+! 4 - Menu de Edição
+! 5 - Menu de Consultas
+! 0 - Sair
+! Escolha uma opção: 0
+--- 14,17 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Insira o conteúdo da célula: 
+\ No newline at end of file

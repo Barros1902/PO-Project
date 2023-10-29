@@ -55,6 +55,9 @@ public class Cell implements Serializable {
         return _content.evalString();
     };
     public String toString(){
+        if (_content==null){
+            this.setContent(new NULL());
+        }
         return String.valueOf(_point.getRow())+";"+String.valueOf(_point.getColumn())+"|"+_content.toString();
     }
     public int getRow(){

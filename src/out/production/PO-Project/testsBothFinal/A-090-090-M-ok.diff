@@ -1,0 +1,109 @@
+<<<<<<< Updated upstream
+*** testsBothFinal/A-090-090-M-ok.out	2023-10-19 17:31:47.000000000 +0100
+--- testsBothFinal/A-090-090-M-ok.outhyp	2023-10-26 06:55:01.664781525 +0100
+=======
+*** testsBothFinal/A-090-090-M-ok.out	2023-10-26 05:36:05.594201986 +0100
+--- testsBothFinal/A-090-090-M-ok.outhyp	2023-10-26 06:42:05.912396943 +0100
+>>>>>>> Stashed changes
+***************
+*** 5,12 ****
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 4
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 5,11 ----
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 15,23 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 3
+! Especifique a gama (startline;startcol:endline;endcol): 1;2
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 14,20 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 26,34 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 6
+! Especifique a gama (startline;startcol:endline;endcol): 1;1
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 23,29 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 37,45 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 1;1
+! 1;1|49
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 32,38 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 1;1|49
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 49,60 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 0
+--- 42,52 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 
+\ No newline at end of file

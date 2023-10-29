@@ -1,0 +1,219 @@
+<<<<<<< Updated upstream
+*** testsBothFinal/A-120-120-M-ok.out	2023-10-19 17:31:48.000000000 +0100
+--- testsBothFinal/A-120-120-M-ok.outhyp	2023-10-26 06:55:02.272796863 +0100
+=======
+*** testsBothFinal/A-120-120-M-ok.out	2023-10-26 05:36:05.594201986 +0100
+--- testsBothFinal/A-120-120-M-ok.outhyp	2023-10-26 06:42:06.399062325 +0100
+>>>>>>> Stashed changes
+***************
+*** 1,31 ****
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+- 3 - Guardar
+- 4 - Menu de Edição
+- 5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 3
+! Ficheiro sem nome. Guardar ficheiro como: saved30
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+- 3 - Guardar
+- 4 - Menu de Edição
+- 5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique o número de linhas da folha: 12
+! Especifique o número de colunas da folha: 12
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 4
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 1,21 ----
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+  0 - Sair
+! Escolha uma opção: Opção inválida!
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+  0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Especifique o número de linhas da folha: Especifique o número de colunas da folha: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 34,43 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 2
+! Especifique a gama (startline;startcol:endline;endcol): 2;3
+! Insira o conteúdo da célula: 5
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 24,30 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): Insira o conteúdo da célula: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 46,54 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 2;3
+! 2;3|5
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 33,39 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 2;3|5
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 58,74 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 2
+! Guardar antes de fechar? n
+! Ficheiro a abrir: saved30
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+--- 43,56 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir ficheiro: Erro a processar ficheiro n
+  Menu Principal
+  1 - Novo
+  2 - Abrir
+***************
+*** 76,83 ****
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 4
+! Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+--- 58,65 ----
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+  3 - Copiar
+***************
+*** 86,94 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 2;3
+! 2;3|'789=COALESCE(1;1:1;3)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 68,74 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 2;3|5
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 98,106 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 1
+! Especifique a gama (startline;startcol:endline;endcol): 2;4
+! 2;4|1075=PRODUCT(2;1:2;2)
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+--- 78,84 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Especifique a gama (startline;startcol:endline;endcol): 2;4|
+  Menu de Edição
+  1 - Visualizar
+  2 - Inserir
+***************
+*** 110,121 ****
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: 0
+! Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 0
+--- 88,98 ----
+  6 - Colar
+  7 - Mostrar 'cut buffer'
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Novo
+  2 - Abrir
+  3 - Guardar
+  4 - Menu de Edição
+  5 - Menu de Consultas
+  0 - Sair
+! Escolha uma opção: 
+\ No newline at end of file

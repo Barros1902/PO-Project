@@ -30,7 +30,11 @@ public class Reference extends Content{
      * */
     @Override
     public String toString() {
-        return getValue()+"="+ _cell.getPoint();
+        if (!getValue().contains(";"))
+            return getValue()+"="+_cell.getPoint();
+        else {
+            return getValue().split("\\=")[0]+"="+_cell.getPoint();
+        }
     }
 
     @Override

@@ -1,0 +1,21 @@
+*** tests/A-126-126-M-ok.out	2023-10-29 09:20:55.329309477 +0000
+--- tests/A-126-126-M-ok.outhyp	2023-10-29 09:35:11.266414962 +0000
+***************
+*** 20,27 ****
+  1 - Procurar valores
+  2 - Procurar funções
+  0 - Sair
+! Escolha uma opção: Função a procurar: 3;3|9=MUL(4;1,4;1)
+! 1;3|-1=SUB(2,3)
+  4;3|-3=SUB(2,5)
+  Menu de Consultas
+  1 - Procurar valores
+--- 20,27 ----
+  1 - Procurar valores
+  2 - Procurar funções
+  0 - Sair
+! Escolha uma opção: Função a procurar: 1;3|-1=SUB(2,3)
+! 3;3|9=MUL(4;1,4;1)
+  4;3|-3=SUB(2,5)
+  Menu de Consultas
+  1 - Procurar valores

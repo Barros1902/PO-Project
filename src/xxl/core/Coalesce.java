@@ -2,6 +2,8 @@ package xxl.core;
 
 import xxl.core.exception.IntFailedException;
 
+import java.util.Objects;
+
 public class Coalesce extends RangeFunction {
 
 	String _name = "COALESCE";
@@ -29,6 +31,9 @@ public class Coalesce extends RangeFunction {
         return new Coalesce(getGama().copy());
     }
     public String toString(){
+        if (Objects.equals(getValue().toString(), "")){
+            return "'" + "=COALESCE(" + getGama().toString() + ")";
+        }
         try {
             return getValue().toString() + "=COALESCE(" + getGama().toString() + ")";
         } catch (Exception e) {
