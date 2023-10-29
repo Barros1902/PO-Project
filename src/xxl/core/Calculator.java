@@ -119,7 +119,7 @@ public class Calculator {
  * @throws UnknownFunctionException
    */
 
-  public void importFile(String filename) throws UnrecognizedEntryException, IOException, ImportFileException, OutOfBoundsException {
+  public void importFile(String filename) throws UnrecognizedEntryException, IOException, ImportFileException, OutOfBoundsException, UnknownFunctionException {
 	Parser _parser = new Parser();
     setSpreadsheet(_parser.parseFile(filename));
   }

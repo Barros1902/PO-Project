@@ -25,7 +25,7 @@ public class Parser implements Serializable{
 	_spreadsheet = spreadsheet;
   }
 
-  public Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException /* More Exceptions? */ {
+  public Spreadsheet parseFile(String filename) throws OutOfBoundsException, IOException, UnrecognizedEntryException, UnknownFunctionException /* More Exceptions? */ {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       parseDimensions(reader);
 
@@ -59,7 +59,7 @@ public class Parser implements Serializable{
     _spreadsheet = new Spreadsheet(rows, columns);
   }
 
-  private void parseLine(String line) throws OutOfBoundsException, UnrecognizedEntryException /*, more exceptions? */{
+  private void parseLine(String line) throws OutOfBoundsException, UnrecognizedEntryException, UnknownFunctionException /*, more exceptions? */{
     String[] components = line.split("\\|");
 
     if (components.length == 1) // do nothing
@@ -75,7 +75,7 @@ public class Parser implements Serializable{
   }
 
   // parse the begining of an expression
-  public Content parseContent(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException {
+  public Content parseContent(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException,UnknownFunctionException {
     char c = contentSpecification.charAt(0);
     if (c == '=')
       return parseContentExpression(contentSpecification.substring(1));
@@ -98,7 +98,7 @@ public class Parser implements Serializable{
   }
 
   // contentSpecification is what comes after '='
-  private Content parseContentExpression(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException /* more exceptions */ {
+  private Content parseContentExpression(String contentSpecification) throws OutOfBoundsException, UnrecognizedEntryException,UnknownFunctionException /* more exceptions */ {
     if (contentSpecification.contains("("))
       return parseFunction(contentSpecification);
     // It is a reference
@@ -106,7 +106,7 @@ public class Parser implements Serializable{
     return new Reference(_spreadsheet.getCell(Integer.parseInt(address[0].trim()), Integer.parseInt(address[1]))); //Construtor de Reference?
   }
 
-  private Content parseFunction(String functionSpecification) throws OutOfBoundsException, UnrecognizedEntryException /* more exceptions */ {
+  private Content parseFunction(String functionSpecification) throws OutOfBoundsException, UnrecognizedEntryException,UnknownFunctionException /* more exceptions */ {
     String[] components = functionSpecification.split("[()]");
     if (components[1].contains(","))
       return parseBinaryFunction(components[0], components[1]);
@@ -115,7 +115,7 @@ public class Parser implements Serializable{
   }
 
 
-  private Content parseBinaryFunction(String functionName, String args) throws OutOfBoundsException, UnrecognizedEntryException /* , more Exceptions */ {
+  private Content parseBinaryFunction(String functionName, String args) throws OutOfBoundsException, UnrecognizedEntryException, UnknownFunctionException /* , more Exceptions */ {
     String[] arguments = args.split(",");
     Content arg0 = parseArgumentExpression(arguments[0]);
     Content arg1 = parseArgumentExpression(arguments[1]);
@@ -125,7 +125,7 @@ public class Parser implements Serializable{
       case "SUB" -> new SUB(arg0, arg1);
       case "MUL" -> new MUL(arg0, arg1);
       case "DIV" -> new DIV(arg0, arg1);
-      default -> throw new UnrecognizedEntryException(args, null);/*dar erro com função inválida: functionName ;*/ //Criar uma exception
+      default -> throw new UnknownFunctionException(functionName);
     };
   }
 
@@ -139,7 +139,7 @@ public class Parser implements Serializable{
   }
 
   
-  private Content parseIntervalFunction(String functionName, String rangeDescription) throws UnrecognizedEntryException, OutOfBoundsException{
+  private Content parseIntervalFunction(String functionName, String rangeDescription) throws UnrecognizedEntryException, OutOfBoundsException,UnknownFunctionException{
     Gama range = _spreadsheet.createRange(rangeDescription);
     return switch (functionName) {
       case "CONCAT" -> new Concat(range);

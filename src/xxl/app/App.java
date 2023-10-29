@@ -1,6 +1,7 @@
 package xxl.app;
 
 import pt.tecnico.uilib.Dialog;
+import xxl.app.exception.UnknownFunctionException;
 import xxl.core.exception.ImportFileException;
 import xxl.core.exception.OutOfBoundsException;
 import xxl.core.exception.UnrecognizedEntryException;
@@ -19,7 +20,8 @@ public class App {
       if (datafile != null) {
         try {
           receiver.importFile(datafile);
-        } catch (ImportFileException | UnrecognizedEntryException | IOException | OutOfBoundsException e) {
+        } catch (ImportFileException | UnrecognizedEntryException | IOException | OutOfBoundsException |
+                 UnknownFunctionException e) {
           e.printStackTrace();
         }
       }

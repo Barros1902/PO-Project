@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import xxl.app.exception.InvalidCellRangeException;
+import xxl.app.exception.UnknownFunctionException;
 import xxl.core.Cell;
 import xxl.core.Content;
 import xxl.core.Gama;
@@ -34,7 +35,7 @@ class DoInsert extends Command<Spreadsheet> {
 	Content conteudo = null;
 	try {
 		conteudo = _parser.parseContent(content);
-	} catch (OutOfBoundsException | UnrecognizedEntryException e) {
+	} catch (OutOfBoundsException  | UnrecognizedEntryException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
