@@ -29,7 +29,11 @@ public class CutBuffer implements Serializable { // Singleton
         return _instance;
     }
     public static void delete(){
-        _instance._content.clear();
+        if (_instance == null)
+            _instance = new CutBuffer(null);
+        else {
+            _instance._content.clear();
+        }
     }
 
     public static CutBuffer cut(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
