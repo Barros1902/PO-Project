@@ -29,7 +29,7 @@ public class CutBuffer implements Serializable { // Singleton
         return _instance;
     }
     public static void delete(){
-        if (_instance == null)
+        if (_instance == null || _instance._content == null)
             _instance = new CutBuffer(null);
         else {
             _instance._content.clear();
