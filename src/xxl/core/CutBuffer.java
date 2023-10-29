@@ -27,6 +27,9 @@ public class CutBuffer implements Serializable { // Singleton
         gama.getSpreadsheet().setGamaCutBuffer(gama);
         return _instance;
     }
+    public static void delete(){
+        _instance = null;
+    }
 
     public static CutBuffer cut(Gama gama) throws OutOfBoundsException, InvalidCellRangeException {
         copy(gama);
