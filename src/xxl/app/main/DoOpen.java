@@ -5,6 +5,7 @@ import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import xxl.app.exception.FileOpenFailedException;
 import xxl.core.Calculator;
+import xxl.core.CutBuffer;
 import xxl.core.exception.MissingFileAssociationException;
 import xxl.core.exception.UnavailableFileException;
 
@@ -28,6 +29,7 @@ class DoOpen extends Command<Calculator> {
   @Override
   protected final void execute() throws CommandException, FileOpenFailedException {
 	/*Verifies if theres is a spreadsheet if it was changed and if you want to keep the changes */
+	CutBuffer.delete();
 	if (_receiver.getSpreadsheet() != null && _receiver.getSpreadsheet().getChanged() && Form.confirm(Message.saveBeforeExit())){
 
 		new DoSave(_receiver).performCommand(); /* Saves it to save it */
